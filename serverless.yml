@@ -1,0 +1,23 @@
+component: http
+name: http-nextjs
+app: my-nextjs-app-d1c470a0
+
+inputs:
+  src:
+    dist: ./
+    hook: npm run build
+    exclude:
+      - .env
+      - .node_modules
+    memorySize: 1024 # 内存大小，单位MB
+  faas:
+    runtime: Nodejs12.16
+    framework: nextjs
+    name: ${name}
+  layers:
+      - name: my-blog-layer #  layer名称
+        version: 1 
+  apigw:
+    protocols:
+      - http
+      - https
