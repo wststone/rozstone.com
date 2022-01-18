@@ -2,11 +2,14 @@ import Container from "@components/deprecated/container";
 import MoreStories from "@components/deprecated/more-stories";
 import HeroPost from "@components/deprecated/hero-post";
 import Intro from "@components/deprecated/intro";
-import Layout from "@components/deprecated/layout";
+// import Layout from "@components/deprecated/layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
 import { Post } from "@types";
+import Layout from "@components/Layout";
+import Header from "@components/Header";
+import Introduction from "@components/Introduction";
 
 type Props = {
 	allPosts: Post[];
@@ -17,11 +20,13 @@ const Index = ({ allPosts }: Props) => {
 	const morePosts = allPosts.slice(1);
 	return (
 		<>
+			<Head>
+				<title>Rozstone's Blog</title>
+			</Head>
 			<Layout>
-				<Head>
-					<title>Next.js Blog Example with {CMS_NAME}</title>
-				</Head>
-				<Container>
+				<Introduction />
+			</Layout>
+			{/* <Container>
 					<Intro />
 					{heroPost && (
 						<HeroPost
@@ -34,8 +39,7 @@ const Index = ({ allPosts }: Props) => {
 						/>
 					)}
 					{morePosts.length > 0 && <MoreStories posts={morePosts} />}
-				</Container>
-			</Layout>
+				</Container> */}
 		</>
 	);
 };

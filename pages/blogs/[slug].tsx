@@ -10,7 +10,7 @@ import PostTitle from "@components/deprecated/post-title";
 import Head from "next/head";
 import { CMS_NAME } from "../../lib/constants";
 import markdownToHtml from "../../lib/markdownToHtml";
-import Post from "../../src/types/post";
+import { Post } from "@types";
 
 type Props = {
 	post: Post;
