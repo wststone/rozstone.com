@@ -10,6 +10,8 @@ import { Post } from "@types";
 import Layout from "@components/Layout";
 import Header from "@components/Header";
 import Introduction from "@components/Introduction";
+import Script from "next/script";
+import DarkModeScript from "@components/Script/DarkModeScript";
 
 type Props = {
 	allPosts: Post[];
@@ -24,6 +26,7 @@ const Index = ({ allPosts }: Props) => {
 				<title>Rozstone's Blog</title>
 			</Head>
 			<Layout>
+				<DarkModeScript />
 				<Introduction />
 			</Layout>
 			{/* <Container>
