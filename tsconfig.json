@@ -14,11 +14,12 @@
 		"resolveJsonModule": true,
 		"isolatedModules": true,
 		"incremental": true,
-		"baseUrl": "./",
+		"baseUrl": ".",
 		"paths": {
 			"@components/*": ["src/components/*"],
 			"@types/*": ["src/types/*"],
-			"@types": ["src/types/"]
+			"@types": ["src/types/"],
+			"@logics": ["src/logics/"],
 		}
 	},
 	"exclude": ["node_modules"],

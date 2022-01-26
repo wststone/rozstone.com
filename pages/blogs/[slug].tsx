@@ -1,58 +1,51 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Container from "@components/deprecated/container";
-import PostBody from "@components/deprecated/post-body";
-import Header from "@components/deprecated/header";
-import PostHeader from "@components/deprecated/post-header";
-import Layout from "@components/deprecated/layout";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
-import PostTitle from "@components/deprecated/post-title";
 import Head from "next/head";
+import { FC } from "react";
+import Layout from "@components/Layout";
+import type { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { getPostBySlug, getSlugs } from "../../lib/api";
 import { CMS_NAME } from "../../lib/constants";
-import markdownToHtml from "../../lib/markdownToHtml";
 import { Post } from "@types";
+import Blog from "@components/Blog";
+import { serialize } from "next-mdx-remote/serialize";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeHighlight from "rehype-highlight";
 
 type Props = {
-	post: Post;
-	morePosts: Post[];
+	post: {
+		source: MDXRemoteSerializeResult<Record<string, unknown>>;
+		meta: {
+			title: string;
+			ogImage: {
+				url: string;
+			};
+			date: string;
+		};
+		slug: string;
+	};
 	preview?: boolean;
 };
 
-const Post = ({ post, morePosts, preview }: Props) => {
+const Post: FC<Props> = ({ post, preview }) => {
 	const router = useRouter();
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />;
 	}
 	return (
-		<Layout preview={preview}>
-			<Container>
-				<Header />
-				{router.isFallback ? (
-					<PostTitle>Loading…</PostTitle>
-				) : (
-					<>
-						<article className="mb-32">
-							<Head>
-								<title>
-									{post.title} | Next.js Blog Example with{" "}
-									{CMS_NAME}
-								</title>
-								<meta
-									property="og:image"
-									content={post.ogImage.url}
-								/>
-							</Head>
-							<PostHeader
-								title={post.title}
-								coverImage={post.coverImage}
-								date={post.date}
-								author={post.author}
-							/>
-							<PostBody content={post.content} />
-						</article>
-					</>
-				)}
-			</Container>
+		<Layout>
+			<Head>
+				<title>
+					{post.meta.title} | Next.js Blog Example with {CMS_NAME}
+				</title>
+				<meta property="og:image" content={post.meta.ogImage.url} />
+			</Head>
+			<Blog
+				title={post.meta.title}
+				date={post.meta.date}
+				source={post.source}
+			/>
 		</Layout>
 	);
 };
@@ -65,39 +58,38 @@ type Params = {
 	};
 };
 
+const mdxOptions = {
+	rehypePlugins: [
+		rehypeSlug,
+		[rehypeAutolinkHeadings, { behavior: "wrap" }],
+		rehypeHighlight,
+	],
+};
+
 export async function getStaticProps({ params }: Params) {
-	const post = getPostBySlug(params.slug, [
-		"title",
-		"date",
-		"slug",
-		"author",
-		"content",
-		"ogImage",
-		"coverImage",
-	]);
-	const content = await markdownToHtml(post.content || "");
+	const { slug } = params;
+	const { content, meta, slug: realSlug } = await getPostBySlug(slug);
+	const mdxSource = await serialize(content, {
+		//@ts-ignore
+		mdxOptions,
+	});
 
 	return {
 		props: {
 			post: {
-				...post,
-				content,
+				source: mdxSource,
+				meta,
+				slug: realSlug,
 			},
 		},
 	};
 }
 
 export async function getStaticPaths() {
-	const posts = getAllPosts(["slug"]);
+	const paths = getSlugs().map(slug => ({ params: { slug } }));
 
 	return {
-		paths: posts.map(post => {
-			return {
-				params: {
-					slug: post.slug,
-				},
-			};
-		}),
+		paths,
 		fallback: false,
 	};
 }

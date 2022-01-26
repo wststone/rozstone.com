@@ -1,13 +1,13 @@
 import { FunctionComponent } from "react";
 import Link from "next/link";
 import { HiOutlineHome } from "react-icons/hi";
-// import ToggleDarkMode from "./DarkMode";
+import ToggleDarkMode from "./DarkMode";
 import dynamic from 'next/dynamic'
 
-const ToggleDarkMode = dynamic(
-  () => import('./DarkMode'),
-  { ssr: false }
-)
+// const ToggleDarkMode = dynamic(
+//   () => import('./DarkMode'),
+//   { ssr: false }
+// )
 const Header: FunctionComponent = () => {
 	return (
 		<header className="flex p-3 items-center">

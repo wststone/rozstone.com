@@ -1,6 +1,7 @@
+/** @type {import('tailwindcss/tailwind-config').TailwindConfig} */
 module.exports = {
 	content: ["./src/components/**/*.tsx", "./pages/**/*.tsx"],
-	darkMode: 'class',
+	darkMode: "class",
 	theme: {
 		extend: {
 			scale: {

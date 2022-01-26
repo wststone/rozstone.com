@@ -1,20 +1,16 @@
-import { FC, useState } from "react";
+import { FC, memo, useState } from "react";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
-
-export function toggle() {
-	document.documentElement.classList.toggle("dark");
-}
+import { useDarkMode } from "@logics";
 
 const DarkMode: FC = () => {
-	const [isDark, setIsDark] = useState(() =>
-		document.documentElement.classList.contains("dark")
-	);
-	const toggleDarkMode = () => {
-		toggle();
-		setIsDark(dark => !dark);
-	};
+	const [isDark, toggleDarkMode] = useDarkMode();
 	return (
-		<button type="button" className="" title="Toggle Dark Mode" onClick={toggleDarkMode}>
+		<button
+			type="button"
+			className="focus:ring-1"
+			title="Toggle Dark Mode"
+			onClick={toggleDarkMode}
+		>
 			{isDark ? (
 				<MdOutlineLightMode className="h-6 w-6 text-white" />
 			) : (

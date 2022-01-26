@@ -1,7 +1,7 @@
 import Script from "next/script";
 
 const DarkModeScript = () => (
-	<Script strategy="lazyOnload">
+	<Script strategy="beforeInteractive">
 		{`if (localStorage.theme === "dark" || (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
 		    document.documentElement.classList.add("dark");
 	    } else {

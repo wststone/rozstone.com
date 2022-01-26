@@ -8,6 +8,10 @@ author:
   picture: '/assets/blog/authors/tim.jpeg'
 ogImage:
   url: '/assets/blog/hello-world/cover.jpg'
+tags:
+  - javascript
+  - typescript
+  - 面试
 ---
 
 ## Customized New Function

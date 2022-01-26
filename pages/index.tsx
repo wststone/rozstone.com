@@ -1,8 +1,3 @@
-import Container from "@components/deprecated/container";
-import MoreStories from "@components/deprecated/more-stories";
-import HeroPost from "@components/deprecated/hero-post";
-import Intro from "@components/deprecated/intro";
-// import Layout from "@components/deprecated/layout";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
 import { CMS_NAME } from "../lib/constants";
@@ -50,15 +45,9 @@ const Index = ({ allPosts }: Props) => {
 export default Index;
 
 export const getStaticProps = async () => {
-	const allPosts = getAllPosts([
-		"title",
-		"date",
-		"slug",
-		"author",
-		"coverImage",
-		"excerpt",
-	]);
+	const allPosts = await getAllPosts();
 
+	// console.log(allPosts)
 	return {
 		props: { allPosts },
 	};
