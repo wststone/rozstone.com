@@ -5,7 +5,6 @@ import { FC } from "react";
 import Layout from "@components/Layout";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { getPostBySlug, getSlugs } from "../../lib/api";
-import { CMS_NAME } from "../../lib/constants";
 import { Post } from "@types";
 import Blog from "@components/Blog";
 import { serialize } from "next-mdx-remote/serialize";
@@ -37,7 +36,7 @@ const Post: FC<Props> = ({ post, preview }) => {
 		<Layout>
 			<Head>
 				<title>
-					{post.meta.title} | Next.js Blog Example with {CMS_NAME}
+					{post.meta.title} | Rozstone's Blog
 				</title>
 				<meta property="og:image" content={post.meta.ogImage.url} />
 			</Head>
@@ -70,7 +69,7 @@ export async function getStaticProps({ params }: Params) {
 	const { slug } = params;
 	const { content, meta, slug: realSlug } = await getPostBySlug(slug);
 	const mdxSource = await serialize(content, {
-		//@ts-ignore
+		// @ts-ignore
 		mdxOptions,
 	});
 

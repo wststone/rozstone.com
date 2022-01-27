@@ -4,9 +4,10 @@ import { FC } from "react";
 interface BlogHeaderProps {
 	title: string;
 	date: string;
+	tags?: string[];
 }
 
-const BlogHeader: FC<BlogHeaderProps> = ({ title, date }) => {
+const BlogHeader: FC<BlogHeaderProps> = ({ title, date, tags }) => {
 	const time = parseISO(date);
 	return (
 		<div className="flex flex-col justify-center items-center">
