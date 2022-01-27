@@ -9,7 +9,7 @@
 			"@types/*": ["src/types/*"],
 			"@types": ["src/types/"],
 			"@logics": ["src/logics/"],
-			"@styles/*": ["src/styles/*"]
+			"@styles/*": ["./styles/*"]
 		}
 	}
 }

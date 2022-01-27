@@ -4,7 +4,6 @@ import BlogContent from "./BlogContent";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import "highlight.js/styles/atom-one-dark.css";
 import styles from "@styles/blog.module.css";
-import {Tag} from "ui"
 
 const Blog: FunctionComponent<{
 	title: string;
@@ -13,7 +12,6 @@ const Blog: FunctionComponent<{
 }> = ({ title, date, source }) => {
 	return (
 		<div className={styles.blog}>
-			<Tag />
 			<BlogHeader title={title} date={date} />
 			<BlogContent source={source} />
 		</div>
