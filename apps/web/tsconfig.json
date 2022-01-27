@@ -1,0 +1,15 @@
+{
+	"extends": "tsconfig/nextjs.json",
+	"exclude": ["node_modules"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@components/*": ["src/components/*"],
+			"@types/*": ["src/types/*"],
+			"@types": ["src/types/"],
+			"@logics": ["src/logics/"],
+			"@styles/*": ["src/styles/*"]
+		}
+	}
+}

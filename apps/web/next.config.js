@@ -1,7 +1,8 @@
+const withTM = require("next-transpile-modules")(["ui"]);
 const isProd = process.env.NODE_ENV === "production";
 
 /** @type {import("next").NextConfig} */
-const nextConfig = {
+const nextConfig = withTM({
 	env: {
 		STATIC_URL: isProd ? process.env.STATIC_URL : "",
 	},
@@ -10,6 +11,6 @@ const nextConfig = {
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
-};
+});
 
 module.exports = nextConfig;
