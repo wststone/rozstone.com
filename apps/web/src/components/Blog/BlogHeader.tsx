@@ -9,10 +9,13 @@ interface BlogHeaderProps {
 
 const BlogHeader: FC<BlogHeaderProps> = ({ title, date, tags }) => {
 	const time = parseISO(date);
+
 	return (
 		<div className="flex flex-col justify-center items-center">
 			<h1 className="text-4xl text-center py-1 font-medium">{title}</h1>
-			<Tag>Tag1</Tag>
+			<div className="flex space-x-2">
+			{tags ? tags.map(tag => <Tag key={tag}>{tag}</Tag>) : null}
+			</div>
 			<time dateTime={date} className="text-sm text-neutral-500 mt-1">
 				{format(time, "LLLL	d, yyyy")}
 			</time>

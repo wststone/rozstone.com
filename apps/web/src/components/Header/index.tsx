@@ -2,13 +2,15 @@ import { FunctionComponent } from "react";
 import Link from "next/link";
 import { HiOutlineHome } from "react-icons/hi";
 import ToggleDarkMode from "./DarkMode";
-import dynamic from 'next/dynamic'
+import { useRouter } from "next/router";
+import Nav from "./Nav";
 
-// const ToggleDarkMode = dynamic(
-//   () => import('./DarkMode'),
-//   { ssr: false }
-// )
+const navs = [{ link: "blogs" }, { link: "todos" }];
+
 const Header: FunctionComponent = () => {
+	const { asPath } = useRouter();
+	const [_, navName] = asPath.split("/");
+
 	return (
 		<header className="flex p-3 items-center">
 			<Link href="/">
@@ -17,12 +19,13 @@ const Header: FunctionComponent = () => {
 				</a>
 			</Link>
 			<nav className="flex ml-auto space-x-2 items-center">
-				<Link href="/blogs">
-					<button type="button">Blogs</button>
-				</Link>
-				<Link href="/todos">
-					<button type="button">Todos</button>
-				</Link>
+				{navs.map(nav => (
+					<Nav
+						key={nav.link}
+						link={nav.link}
+						isCurrent={navName === nav.link}
+					/>
+				))}
 				<ToggleDarkMode />
 			</nav>
 		</header>

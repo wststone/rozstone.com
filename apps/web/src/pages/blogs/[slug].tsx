@@ -1,33 +1,18 @@
 import { useRouter } from "next/router";
+import type { GetStaticPaths, GetStaticProps } from "next";
 import ErrorPage from "next/error";
 import Head from "next/head";
 import { FC } from "react";
-import Layout from "@components/Layout";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { getPostBySlug, getSlugs } from "../../lib/api";
-import { Post } from "@types";
+import Layout from "@components/Layout";
 import Blog from "@components/Blog";
 import { serialize } from "next-mdx-remote/serialize";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 
-type Props = {
-	post: {
-		source: MDXRemoteSerializeResult<Record<string, unknown>>;
-		meta: {
-			title: string;
-			ogImage: {
-				url: string;
-			};
-			date: string;
-		};
-		slug: string;
-	};
-	preview?: boolean;
-};
-
-const Post: FC<Props> = ({ post, preview }) => {
+const SingleBlog: FC<SingleBlogProps> = ({ post }) => {
 	const router = useRouter();
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />;
@@ -35,26 +20,12 @@ const Post: FC<Props> = ({ post, preview }) => {
 	return (
 		<Layout>
 			<Head>
-				<title>
-					{post.meta.title} | Rozstone's Blog
-				</title>
+				<title>{post.meta.title} | Rozstone's Blog</title>
 				<meta property="og:image" content={post.meta.ogImage.url} />
 			</Head>
-			<Blog
-				title={post.meta.title}
-				date={post.meta.date}
-				source={post.source}
-			/>
+			<Blog source={post.source} {...post.meta} />
 		</Layout>
 	);
-};
-
-export default Post;
-
-type Params = {
-	params: {
-		slug: string;
-	};
 };
 
 const mdxOptions = {
@@ -65,7 +36,29 @@ const mdxOptions = {
 	],
 };
 
-export async function getStaticProps({ params }: Params) {
+type SingleBlogProps = {
+	post: {
+		source: MDXRemoteSerializeResult<Record<string, unknown>>;
+		meta: {
+			title: string;
+			ogImage: {
+				url: string;
+			};
+			date: string;
+			tags?: string[];
+		};
+		slug: string;
+	};
+};
+
+type BlogStaticPropParams = {
+	slug: string;
+};
+
+export const getStaticProps: GetStaticProps<
+	SingleBlogProps,
+	BlogStaticPropParams
+> = async ({ params }) => {
 	const { slug } = params;
 	const { content, meta, slug: realSlug } = await getPostBySlug(slug);
 	const mdxSource = await serialize(content, {
@@ -82,13 +75,15 @@ export async function getStaticProps({ params }: Params) {
 			},
 		},
 	};
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = () => {
 	const paths = getSlugs().map(slug => ({ params: { slug } }));
 
 	return {
 		paths,
 		fallback: false,
 	};
-}
+};
+
+export default SingleBlog;

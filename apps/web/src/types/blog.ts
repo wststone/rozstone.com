@@ -1,5 +1,23 @@
 import Author from "./author";
 
+
+export type ParsedBlog = {
+	content: string;
+	meta: PostMeta;
+	slug: string;
+};
+
+interface PostMeta {
+	date: string;
+	title: string;
+	tags?: string[];
+	coverImage: string;
+	ogImage: {
+		url: string;
+	};
+}
+
+
 export type Post = {
 	meta: {
 		title: string;

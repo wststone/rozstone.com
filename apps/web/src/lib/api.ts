@@ -2,6 +2,7 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 import { sync } from "glob";
+import type { ParsedBlog } from "@types";
 
 const postsDirectory = join(process.cwd(), "_posts");
 
@@ -19,16 +20,6 @@ export const getSlugs = (): string[] => {
 		return slug;
 	});
 	return slugs;
-};
-
-interface PostMeta {
-	date: string;
-}
-
-type ParsedBlog = {
-	content: string;
-	meta: PostMeta;
-	slug: string;
 };
 
 export async function getPostBySlug(slug: string): Promise<ParsedBlog> {

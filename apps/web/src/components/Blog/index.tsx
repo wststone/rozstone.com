@@ -9,10 +9,11 @@ const Blog: FunctionComponent<{
 	title: string;
 	date: string;
 	source: MDXRemoteSerializeResult<Record<string, unknown>>;
-}> = ({ title, date, source }) => {
+	tags?: string[];
+}> = ({ title, date, source, tags }) => {
 	return (
 		<div className={styles.blog}>
-			<BlogHeader title={title} date={date} />
+			<BlogHeader title={title} date={date} tags={tags} />
 			<BlogContent source={source} />
 		</div>
 	);

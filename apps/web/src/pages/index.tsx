@@ -1,32 +1,30 @@
+import { FC } from "react";
 import { getAllPosts } from "../lib/api";
 import Head from "next/head";
-import { CMS_NAME } from "../lib/constants";
 import { Post } from "@types";
 import Layout from "@components/Layout";
-import Header from "@components/Header";
 import Introduction from "@components/Introduction";
-import Script from "next/script";
 import DarkModeScript from "@components/Script/DarkModeScript";
+import BlogList from "@components/Blog/List";
 
-type Props = {
+type HomeProps = {
 	allPosts: Post[];
 };
 
-const Index = ({ allPosts }: Props) => {
+const Home: FC<HomeProps> = ({ allPosts }) => {
 	return (
 		<>
 			<Head>
 				<title>Rozstone's Blog</title>
 			</Head>
 			<Layout>
+				<BlogList allBlogs={allPosts} />
 				<DarkModeScript />
 				<Introduction />
 			</Layout>
 		</>
 	);
 };
-
-export default Index;
 
 export const getStaticProps = async () => {
 	const allPosts = await getAllPosts();
@@ -36,3 +34,5 @@ export const getStaticProps = async () => {
 		props: { allPosts },
 	};
 };
+
+export default Home;
