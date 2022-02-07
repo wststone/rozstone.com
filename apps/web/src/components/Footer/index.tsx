@@ -1,6 +1,5 @@
-
 const Footer = () => {
-	return <footer>footer 123</footer>;
+	return <footer className="fixed bottom-0">footer</footer>;
 };
 
 export default Footer;

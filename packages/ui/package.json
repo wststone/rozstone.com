@@ -8,6 +8,9 @@
 		"@types/react": "^17.0.37",
 		"@types/react-dom": "^17.0.11",
 		"tsconfig": "workspace:*",
+		"tailwindcss": "latest",
+		"autoprefixer": "10.4.0",
+		"postcss": "8.4.5",
 		"typescript": "latest"
 	}
 }
