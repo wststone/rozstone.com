@@ -1,20 +1,20 @@
-import { useRouter } from "next/router";
-import type { GetStaticPaths, GetStaticProps } from "next";
+import Layout from "@components/Layout";
 import ErrorPage from "next/error";
-import Head from "next/head";
-import { FC } from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
 import {
 	getContentBySlug,
 	getSlugs,
-	blogsDirectory,
+	notesDirectory,
 	mdxOptions,
 } from "../../lib/api";
-import Layout from "@components/Layout";
 import Post from "@components/Post";
+import { useRouter } from "next/router";
+import type { SingleBlogProps } from "@types";
+import { FC } from "react";
+import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
-import { SingleBlogProps } from "@types";
 
-const SingleBlog: FC<SingleBlogProps> = ({ post }) => {
+const Notes: FC<SingleBlogProps> = ({ post }) => {
 	const router = useRouter();
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />;
@@ -22,7 +22,7 @@ const SingleBlog: FC<SingleBlogProps> = ({ post }) => {
 	return (
 		<Layout>
 			<Head>
-				<title>{post.meta.title} | Rozstone's Blog</title>
+				<title>{post.meta.title} | Rozstone's Notes</title>
 				<meta property="og:image" content={post.meta.ogImage.url} />
 			</Head>
 			<Post source={post.source} {...post.meta} />
@@ -30,20 +30,16 @@ const SingleBlog: FC<SingleBlogProps> = ({ post }) => {
 	);
 };
 
-type BlogStaticPropParams = {
-	slug: string;
-};
-
 export const getStaticProps: GetStaticProps<
 	SingleBlogProps,
-	BlogStaticPropParams
+	{ slug: string }
 > = async ({ params }) => {
 	const { slug } = params;
 	const {
 		content,
 		meta,
 		slug: realSlug,
-	} = await getContentBySlug(slug, blogsDirectory);
+	} = await getContentBySlug(slug, notesDirectory);
 	const mdxSource = await serialize(content, {
 		// @ts-ignore
 		mdxOptions,
@@ -60,8 +56,8 @@ export const getStaticProps: GetStaticProps<
 	};
 };
 
-export const getStaticPaths: GetStaticPaths = () => {
-	const paths = getSlugs(blogsDirectory).map(slug => ({ params: { slug } }));
+export const getStaticPaths: GetStaticPaths = async () => {
+	const paths = getSlugs(notesDirectory).map(slug => ({ params: { slug } }));
 
 	return {
 		paths,
@@ -69,4 +65,4 @@ export const getStaticPaths: GetStaticPaths = () => {
 	};
 };
 
-export default SingleBlog;
+export default Notes;

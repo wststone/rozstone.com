@@ -1,37 +1,39 @@
 import { FC } from "react";
-import { getAllPosts } from "../lib/api";
+import { getAllPosts, notesDirectory, blogsDirectory } from "../lib/api";
 import Head from "next/head";
-import { Post } from "@types";
+import { Blog } from "@types";
 import Layout from "@components/Layout";
 import Introduction from "@components/Introduction";
-import DarkModeScript from "@components/Script/DarkModeScript";
-import BlogList from "@components/Blog/List";
+import { BlogList, NoteList } from "@components/List";
 
 type HomeProps = {
-	allPosts: Post[];
+	allBlogs: Blog[];
+	allNotes: Blog[];
 };
 
-const Home: FC<HomeProps> = ({ allPosts }) => {
+const Home: FC<HomeProps> = ({ allBlogs, allNotes }) => {
 	return (
 		<>
 			<Head>
-				<title>Rozstone's Blog</title>
+				<title>Rozstone's Blog | Home</title>
 			</Head>
 			<Layout>
-				<BlogList allBlogs={allPosts} />
-				<DarkModeScript />
 				<Introduction />
+				<BlogList allBlogs={allBlogs} />
+				<NoteList allNotes={allNotes} />
 			</Layout>
 		</>
 	);
 };
 
 export const getStaticProps = async () => {
-	const allPosts = await getAllPosts();
+	const [allBlogs, allNotes] = await Promise.all([
+		getAllPosts(blogsDirectory),
+		getAllPosts(notesDirectory),
+	]);
 
-	// console.log(allPosts)
 	return {
-		props: { allPosts },
+		props: { allBlogs, allNotes },
 	};
 };
 

@@ -1,13 +1,12 @@
-import Author from "./author";
-
+import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 
 export type ParsedBlog = {
 	content: string;
-	meta: PostMeta;
+	meta: BlogMeta;
 	slug: string;
 };
 
-interface PostMeta {
+export interface BlogMeta {
 	date: string;
 	title: string;
 	tags?: string[];
@@ -15,22 +14,28 @@ interface PostMeta {
 	ogImage: {
 		url: string;
 	};
+	excerpt: string;
 }
 
-
-export type Post = {
-	meta: {
-		title: string;
-		date: string;
-		coverImage: string;
-		author: Author;
-		excerpt: string;
-		ogImage: {
-			url: string;
-		};
-	};
+export type Blog = {
+	meta: BlogMeta;
 	slug: string;
 	content: string;
 };
 
-export default Post;
+export type SingleBlogProps = {
+	post: {
+		source: MDXRemoteSerializeResult<Record<string, unknown>>;
+		meta: {
+			title: string;
+			ogImage: {
+				url: string;
+			};
+			date: string;
+			tags?: string[];
+		};
+		slug: string;
+	};
+};
+
+export default Blog;

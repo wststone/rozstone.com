@@ -1,11 +1,11 @@
 import { FC } from "react";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
-interface BlogContentProps {
+interface PostContentProps {
 	source: MDXRemoteSerializeResult<Record<string, unknown>>;
 }
 
-const BlogContent: FC<BlogContentProps> = ({ source }) => {
+const PostContent: FC<PostContentProps> = ({ source }) => {
 	return (
 		<article>
 			<MDXRemote {...source} />
@@ -13,4 +13,4 @@ const BlogContent: FC<BlogContentProps> = ({ source }) => {
 	);
 };
 
-export default BlogContent;
+export default PostContent;

@@ -2,11 +2,11 @@ import { GetStaticProps } from "next";
 import Layout from "@components/Layout";
 import { getAllPosts } from "../../lib/api";
 import { FC } from "react";
-import { Post } from "@types";
-import BlogList from "@components/Blog/List";
+import { Blog } from "@types";
+import { BlogList } from "@components/List";
 
 interface BlogListsProps {
-	allBlogs: Post[];
+	allBlogs: Blog[];
 }
 
 const BlogListPage: FC<BlogListsProps> = ({ allBlogs }) => {

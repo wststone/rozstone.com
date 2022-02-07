@@ -13,21 +13,21 @@ interface ListBlogItemProps {
 	content: string;
 }
 
-const ListBlogItem: FunctionComponent<ListBlogItemProps> = ({
+export const ListNoteItem: FunctionComponent<ListBlogItemProps> = ({
 	title,
 	slug,
 	excerpt,
 }) => {
 	return (
-		<Link href={`/blogs/${slug}`}>
+		<Link href={`/notes/${slug}`}>
 			<a className="flex py-2 px-3 transition-colors bg-transparent hover:bg-slate-100">
-				<div className="flex flex-col">
-					<div className="text-xl font-[450]">{title}</div>
-					<p className="mt-1 text-slate-400">{excerpt}</p>
-				</div>
+				<li className="flex flex-col">
+					<div className="text-base sm:text-xl font-[450]">{title}</div>
+					<p className="mt-1 text-slate-400 text-sm sm:text-base">{excerpt}</p>
+				</li>
 			</a>
 		</Link>
 	);
 };
 
-export default ListBlogItem;
+export default ListNoteItem;

@@ -1,18 +1,19 @@
 import { format, parseISO } from "date-fns";
 import { FC } from "react";
 import { Tag } from "ui";
-interface BlogHeaderProps {
+
+interface PostHeaderProps {
 	title: string;
 	date: string;
 	tags?: string[];
 }
 
-const BlogHeader: FC<BlogHeaderProps> = ({ title, date, tags }) => {
+const PostHeader: FC<PostHeaderProps> = ({ title, date, tags }) => {
 	const time = parseISO(date);
 
 	return (
-		<div className="flex flex-col justify-center items-center">
-			<h1 className="text-4xl text-center py-1 font-medium">{title}</h1>
+		<div className="flex flex-col justify-center items-center space-y-1">
+			<h1 className="text-4xl text-center py-1 font-medium dark:text-neutral-100">{title}</h1>
 			<div className="flex space-x-2">
 			{tags ? tags.map(tag => <Tag key={tag}>{tag}</Tag>) : null}
 			</div>
@@ -23,4 +24,4 @@ const BlogHeader: FC<BlogHeaderProps> = ({ title, date, tags }) => {
 	);
 };
 
-export default BlogHeader;
+export default PostHeader;

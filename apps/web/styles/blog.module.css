@@ -1,4 +1,0 @@
-/* anchored heading styles */
-.blog article h2 {
-	@apply text-3xl font-medium my-2 text-gray-800 dark:text-neutral-200 hover:text-gray-600;
-}

@@ -1,22 +1,22 @@
 import { FunctionComponent } from "react";
-import BlogHeader from "./BlogHeader";
-import BlogContent from "./BlogContent";
+import PostHeader from "./PostHeader";
+import PostContent from "./PostContent";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import "highlight.js/styles/atom-one-dark.css";
-import styles from "@styles/blog.module.css";
+import styles from "@styles/post.module.css";
 
-const Blog: FunctionComponent<{
+const Post: FunctionComponent<{
 	title: string;
 	date: string;
 	source: MDXRemoteSerializeResult<Record<string, unknown>>;
 	tags?: string[];
 }> = ({ title, date, source, tags }) => {
 	return (
-		<div className={styles.blog}>
-			<BlogHeader title={title} date={date} tags={tags} />
-			<BlogContent source={source} />
+		<div className={styles.post}>
+			<PostHeader title={title} date={date} tags={tags} />
+			<PostContent source={source} />
 		</div>
 	);
 };
 
-export default Blog;
+export default Post;
