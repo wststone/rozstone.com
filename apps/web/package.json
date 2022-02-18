@@ -10,6 +10,7 @@
   "dependencies": {
     "classnames": "2.3.1",
     "date-fns": "2.21.3",
+    "framer-motion": "^6.2.6",
     "gray-matter": "4.0.3",
     "next": "latest",
     "next-mdx-remote": "^3.0.8",
@@ -27,6 +28,7 @@
     "ui": "workspace:*"
   },
   "devDependencies": {
+    "@tailwindcss/line-clamp": "^0.3.1",
     "@types/glob": "^7.2.0",
     "@types/jest": "^26.0.24",
     "@types/node": "^15.14.9",
@@ -34,10 +36,10 @@
     "@types/react-dom": "^17.0.11",
     "@types/remark-prism": "^1.3.0",
     "@types/tailwindcss": "latest",
-    "next-transpile-modules": "^9.0.0",
-    "tsconfig": "workspace:*",
     "autoprefixer": "10.4.0",
+    "next-transpile-modules": "^9.0.0",
     "postcss": "8.4.5",
-    "tailwindcss": "latest"
+    "tailwindcss": "latest",
+    "tsconfig": "workspace:*"
   }
 }

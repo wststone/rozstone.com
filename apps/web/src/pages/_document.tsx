@@ -8,6 +8,7 @@ export default class MyDocument extends Document {
 					<link rel="icon" href="/favicon/favicon.ico" />
 				</Head>
 				<body className="bg-neutral-50 dark:bg-neutral-800 transition-colors duration-300">
+				<DarkModeScript />
 					<Main />
 					<NextScript />
 				</body>

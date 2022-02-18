@@ -1,5 +1,3 @@
-import Script from "next/script";
-
 const DARKMODE_SCRIPT = `(function () {
 	if (
 		localStorage.theme === "dark" ||
@@ -13,11 +11,12 @@ const DARKMODE_SCRIPT = `(function () {
 })()`;
 
 export const DarkModeScript = () => (
-	<Script
+	<script
+		type="text/javascript"
+		async
 		id="dark-mode-script"
-		strategy="beforeInteractive"
 		dangerouslySetInnerHTML={{ __html: DARKMODE_SCRIPT }}
-	></Script>
+	/>
 );
 
 export default DarkModeScript;
