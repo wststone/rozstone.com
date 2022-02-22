@@ -7,10 +7,16 @@
 	"devDependencies": {
 		"@types/react": "^17.0.37",
 		"@types/react-dom": "^17.0.11",
-		"tsconfig": "workspace:*",
-		"tailwindcss": "latest",
 		"autoprefixer": "10.4.0",
 		"postcss": "8.4.5",
+		"tailwindcss": "latest",
+		"tsconfig": "workspace:*",
 		"typescript": "latest"
+	},
+	"dependencies": {
+		"@radix-ui/colors": "^0.1.8",
+		"@radix-ui/react-dropdown-menu": "^0.1.4",
+		"@radix-ui/react-label": "^0.1.4",
+		"@stitches/react": "^1.2.6"
 	}
 }

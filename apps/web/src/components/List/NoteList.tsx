@@ -10,15 +10,19 @@ interface NoteListProp {
 export const NoteList: FC<NoteListProp> = ({ allNotes }) => {
 	const [filteredNotes, setFilteredNotes] = useState(allNotes);
 	const filterNotes = useCallback((tag: string) => {
-		const notes = allNotes.filter(note => note.meta.tags?.includes(tag))
-		setFilteredNotes(notes)
-	}, [])
+		if (!tag) {
+			setFilteredNotes(allNotes);
+			return;
+		}
+		const notes = allNotes.filter(note => note.meta.tags?.includes(tag));
+		setFilteredNotes(notes);
+	}, []);
 
 	return (
 		<div className="px-8">
 			<div className="flex justify-between">
 				<h3>{`123${filteredNotes.length}`}</h3>
-				<Filter filterNotes={filterNotes}/>
+				<Filter filterNotes={filterNotes} />
 			</div>
 			<ol className="grid grid-cols-1 gap-4 sm:grid-cols-3">
 				{filteredNotes.map(blog => (

@@ -5,6 +5,7 @@ import { FiGithub } from "react-icons/fi";
 import ToggleDarkMode from "./DarkMode";
 import { useRouter } from "next/router";
 import ContentLink from "./ContentLink";
+import { AnimatePresence } from "framer-motion";
 
 const ContentLinks = [
 	{ link: "blogs" },
@@ -23,23 +24,25 @@ const Header: FunctionComponent = () => {
 					<HiOutlineHome className="h-6 w-6 text-neutral-600 dark:text-neutral-200" />
 				</a>
 			</Link>
-			<nav className="flex ml-auto space-x-2 items-center sm:space-x-3">
-				{ContentLinks.map(nav => (
-					<ContentLink
-						key={nav.link}
-						link={nav.link}
-						isCurrent={navName === nav.link}
-					/>
-				))}
-				<a
-					href="https://github.com/wststone"
-					target="_blank"
-					className="rounded-full focus:ring-2 p-0.5"
-				>
-					<FiGithub className="h-6 w-6 text-neutral-600 dark:text-neutral-200" />
-				</a>
-				<ToggleDarkMode />
-			</nav>
+			<AnimatePresence>
+				<nav className="flex ml-auto space-x-2 items-center sm:space-x-3">
+					{ContentLinks.map(nav => (
+						<ContentLink
+							key={nav.link}
+							link={nav.link}
+							isCurrent={navName === nav.link}
+						/>
+					))}
+					<a
+						href="https://github.com/wststone"
+						target="_blank"
+						className="rounded-full focus:ring-2 p-0.5"
+					>
+						<FiGithub className="h-6 w-6 text-neutral-600 dark:text-neutral-200" />
+					</a>
+					<ToggleDarkMode />
+				</nav>
+			</AnimatePresence>
 		</header>
 	);
 };

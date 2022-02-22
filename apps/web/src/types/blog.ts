@@ -15,6 +15,7 @@ export interface BlogMeta {
 		url: string;
 	};
 	excerpt: string;
+	updating?: boolean;
 }
 
 export type Blog = {

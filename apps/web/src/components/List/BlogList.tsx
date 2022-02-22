@@ -10,8 +10,8 @@ interface BlogListsProp {
 
 export const BlogList: FC<BlogListsProp> = ({ allBlogs }) => {
 	return (
-		<div className="flex flex-col">
-			<Link href="/blogs">
+		<div className="flex flex-col p-5">
+			<Link href="/blogs" scroll={false}>
 				<a className="ml-auto">More Blogs</a>
 			</Link>
 			<div className="grid grid-cols-1 gap-4 sm:grid-cols-2">

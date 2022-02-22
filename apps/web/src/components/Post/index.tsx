@@ -10,6 +10,7 @@ const Post: FunctionComponent<{
 	date: string;
 	source: MDXRemoteSerializeResult<Record<string, unknown>>;
 	tags?: string[];
+	updating?: boolean;
 }> = ({ title, date, source, tags }) => {
 	return (
 		<div className={styles.post}>
