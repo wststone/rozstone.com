@@ -15,11 +15,11 @@ const PostHeader: FC<PostHeaderProps> = ({ title, date, tags }) => {
 			<h1 className="text-4xl text-center py-1 font-medium dark:text-neutral-100">
 				{title}
 			</h1>
-			<div className="flex space-x-2">
+			<div className="flex space-x-2 flex-wrap">
 				{tags
 					? tags.map(tag => (
 							<span
-								className="bg-red-50 text-red-500 px-3 py-0.5 rounded-2xl text-sm capitalize dark:bg-slate-600 dark:text-slate-50"
+								className="bg-red-50 text-red-500 px-3 my-0.5 py-0.5 rounded-2xl text-sm capitalize dark:bg-slate-600 dark:text-slate-50"
 								key={tag}
 							>
 								{tag}
