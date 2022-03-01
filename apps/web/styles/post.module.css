@@ -9,16 +9,19 @@
 	@apply text-3xl font-medium my-2;
 }
 .post article h3 {
-	@apply text-3xl font-medium my-2;
+	@apply text-3xl font-medium my-1;
 }
 .post article h4 {
-	@apply text-2xl font-medium my-2;
+	@apply text-2xl font-medium my-1;
 }
 .post article p {
 	@apply text-xl my-0.5;
 }
 .post article p strong {
 	@apply text-rose-600;
+}
+.post article p a {
+	@apply capitalize text-teal-900 mx-1;
 }
 .post article pre {
 	@apply text-xl my-1;

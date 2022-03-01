@@ -6,7 +6,7 @@ import type { ParsedBlog } from "@types";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
-
+import rehypeExternalLinks from "rehype-external-links";
 
 
 export const blogsDirectory = join(process.cwd(), "_blogs");
@@ -59,5 +59,6 @@ export const mdxOptions = {
 		rehypeSlug,
 		[rehypeAutolinkHeadings, { behavior: "wrap" }],
 		rehypeHighlight,
+		rehypeExternalLinks
 	],
 };

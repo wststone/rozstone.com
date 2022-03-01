@@ -12,7 +12,7 @@ const PostHeader: FC<PostHeaderProps> = ({ title, date, tags }) => {
 
 	return (
 		<div className="flex flex-col justify-center items-center space-y-1">
-			<h1 className="text-4xl text-center py-1 font-medium dark:text-neutral-100">
+			<h1 className="text-4xl capitalize text-center py-1 font-medium dark:text-neutral-100">
 				{title}
 			</h1>
 			<div className="flex space-x-2 flex-wrap">

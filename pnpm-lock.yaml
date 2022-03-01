@@ -36,6 +36,7 @@ importers:
       react-dom: ^17.0.2
       react-icons: ^4.3.1
       rehype-autolink-headings: ^6.1.1
+      rehype-external-links: ^1.0.1
       rehype-highlight: ^5.0.2
       rehype-slug: ^5.0.1
       remark: 13.0.0
@@ -57,6 +58,7 @@ importers:
       react-dom: 17.0.2_react@17.0.2
       react-icons: 4.3.1_react@17.0.2
       rehype-autolink-headings: 6.1.1
+      rehype-external-links: 1.0.1
       rehype-highlight: 5.0.2
       rehype-slug: 5.0.1
       remark: 13.0.0
@@ -2474,6 +2476,11 @@ packages:
       loose-envify: 1.4.0
     dev: false
 
+  /is-absolute-url/4.0.1:
+    resolution: {integrity: sha512-/51/TKE88Lmm7Gc4/8btclNXWS+g50wXhYJq8HWIBAGUBnoAdRu1aXeh364t/O7wXDAcTJDP8PNuNKWUDWie+A==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dev: false
+
   /is-alphabetical/1.0.4:
     resolution: {integrity: sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg==, tarball: is-alphabetical/-/is-alphabetical-1.0.4/9e7d6b94916be22153745d184c298cbf986a686d.tgz}
 
@@ -3528,6 +3535,17 @@ packages:
       unist-util-visit: 4.1.0
     dev: false
 
+  /rehype-external-links/1.0.1:
+    resolution: {integrity: sha512-SrMMtIO2tPLWDfvibhECAn9cuEMW6Fi40ZVK2UQSPTnDEv3LraLzGVyKGb/vrDlUy4RCYTcmm0rq/ss9nPqrsw==}
+    dependencies:
+      '@types/hast': 2.3.4
+      extend: 3.0.2
+      is-absolute-url: 4.0.1
+      space-separated-tokens: 2.0.1
+      unified: 10.1.1
+      unist-util-visit: 4.1.0
+    dev: false
+
   /rehype-highlight/5.0.2:
     resolution: {integrity: sha512-ZNm8V8BQUDn05cJPzAu/PjiloaFFrh+Pt3bY+NCcdCggI7Uyl5mW0FGR7RATeIz5/ECUd1D8Kvjt4HaLPmnOMw==, tarball: __tarballs/rehype-highlight/5.0.2/__path/npm/rehype-highlight/-/rehype-highlight-5.0.2/de952123cd4d9672f21a4a38d3b119b88a08eafa.tgz}
     dependencies:
@@ -3817,6 +3835,10 @@ packages:
 
   /space-separated-tokens/1.1.5:
     resolution: {integrity: sha512-q/JSVd1Lptzhf5bkYm4ob4iWPjx0KiRe3sRFBNrVqbJkFaBm5vbbowy1mymoPNLRa52+oadOhJ+K49wsSeSjTA==, tarball: space-separated-tokens/-/space-separated-tokens-1.1.5/85f32c3d10d9682007e917414ddc5c26d1aa6899.tgz}
+    dev: false
+
+  /space-separated-tokens/2.0.1:
+    resolution: {integrity: sha512-ekwEbFp5aqSPKaqeY1PGrlGQxPNaq+Cnx4+bE2D8sciBQrHpbwoBbawqTN2+6jPs9IdWxxiUcN0K2pkczD3zmw==}
     dev: false
 
   /sprintf-js/1.0.3:
