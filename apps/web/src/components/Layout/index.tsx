@@ -1,9 +1,9 @@
 import { FunctionComponent } from "react";
 import Header from "../Header";
 import Footer from "@components/Footer";
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, HTMLMotionProps } from "framer-motion";
 
-interface LayoutProps {
+interface LayoutProps extends HTMLMotionProps<"main"> {
 	header?: boolean;
 	footer?: boolean;
 }
@@ -18,10 +18,10 @@ const Layout: FunctionComponent<LayoutProps> = ({
 	header = true,
 	footer = false,
 	children,
+	...props
 }) => {
 	return (
 		<>
-			{/* <DarkModeScript /> */}
 			{header && <Header />}
 			<motion.main
 				variants={variants}
@@ -30,6 +30,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
 				exit="exit"
 				transition={{ type: "linear" }}
 				className="p-5"
+				{...props}
 			>
 				{children}
 			</motion.main>

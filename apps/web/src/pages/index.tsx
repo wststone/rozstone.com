@@ -1,10 +1,11 @@
 import { FC } from "react";
 import { getAllPosts, notesDirectory, blogsDirectory } from "../lib/api";
 import Head from "next/head";
-import { Blog } from "@types";
+import { Blog, Locale } from "@types";
 import Layout from "@components/Layout";
 import Introduction from "@components/Introduction";
 import { BlogList, NoteList } from "@components/List";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 type HomeProps = {
 	allBlogs: Blog[];
@@ -26,14 +27,15 @@ const Home: FC<HomeProps> = ({ allBlogs, allNotes }) => {
 	);
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ locale }: { locale: Locale }) => {
 	const [allBlogs, allNotes] = await Promise.all([
 		getAllPosts(blogsDirectory),
 		getAllPosts(notesDirectory),
 	]);
+	const translation = await serverSideTranslations(locale);
 
 	return {
-		props: { allBlogs, allNotes },
+		props: { allBlogs, allNotes, ...translation },
 	};
 };
 

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { HiOutlineHome } from "react-icons/hi";
 import { FiGithub } from "react-icons/fi";
 import ToggleDarkMode from "./DarkMode";
+import I18 from "./I18";
 import { useRouter } from "next/router";
 import ContentLink from "./ContentLink";
 import { AnimatePresence } from "framer-motion";
@@ -33,6 +34,7 @@ const Header: FunctionComponent = () => {
 							isCurrent={navName === nav.link}
 						/>
 					))}
+					<I18 />
 					<a
 						href="https://github.com/wststone"
 						target="_blank"

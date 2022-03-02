@@ -1,5 +1,6 @@
-const withTM = require("next-transpile-modules")(["ui"]);
 const isProd = process.env.NODE_ENV === "production";
+const { i18n } = require("./next-i18next.config");
+const withTM = require("next-transpile-modules")(["ui"]);
 
 /** @type {import("next").NextConfig} */
 const nextConfig = {
@@ -11,6 +12,7 @@ const nextConfig = {
 	eslint: {
 		ignoreDuringBuilds: true,
 	},
+	i18n,
 	webpack: config => {
 		// Find the base rule that contains nested rules (which contains css-loader)
 		const rules = config.module.rules.find(r => !!r.oneOf);
