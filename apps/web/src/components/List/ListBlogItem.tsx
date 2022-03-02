@@ -12,21 +12,27 @@ interface ListBlogItemProps {
 	};
 	content: string;
 	updating?: boolean;
+	locale: string;
 }
 
 export const ListBlogItem: FunctionComponent<ListBlogItemProps> = ({
 	title,
 	slug,
 	excerpt,
-	updating
+	updating,
+	locale,
 }) => {
 	return (
-		<Link href={`/blogs/${slug}`}>
+		<Link href={`/blogs/${slug}`} locale={locale}>
 			<a className="flex py-2 px-3 transition-colors duration-300 bg-transparent hover:bg-slate-100">
 				<div className="flex flex-col">
-					<div className="capitalize text-neutral-700 text-base font-[450] sm:text-xl dark:text-neutral-300">{title}</div>
+					<div className="capitalize text-neutral-700 text-base font-[450] sm:text-2xl dark:text-neutral-300">
+						{title}
+					</div>
 					{updating && `updating`}
-					<p className="mt-1 text-sm text-neutral-600 sm:text-base dark:text-neutral-400 line-clamp-3">{excerpt}</p>
+					<p className="mt-1 text-sm text-neutral-600 sm:text-xl dark:text-neutral-400 line-clamp-3">
+						{excerpt}
+					</p>
 				</div>
 			</a>
 		</Link>

@@ -32,7 +32,7 @@ export const getStaticProps = async ({ locale }: { locale: Locale }) => {
 		getAllPosts(blogsDirectory),
 		getAllPosts(notesDirectory),
 	]);
-	const translation = await serverSideTranslations(locale);
+	const translation = await serverSideTranslations(locale, ["common"]);
 
 	return {
 		props: { allBlogs, allNotes, ...translation },

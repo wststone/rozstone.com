@@ -3,7 +3,7 @@ import { getAllPosts } from "../../lib/api";
 import Head from "next/head";
 import { Blog } from "@types";
 import Layout from "@components/Layout";
-import { BlogList } from "@components/List";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 type HomeProps = {
 	allPosts: Blog[];
@@ -22,11 +22,12 @@ const ResourcesPage: FC<HomeProps> = ({ allPosts }) => {
 	);
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps = async ({ locale }) => {
 	const allPosts = await getAllPosts();
+	const translation = await serverSideTranslations(locale);
 
 	return {
-		props: { allPosts },
+		props: { allPosts, ...translation },
 	};
 };
 

@@ -5,6 +5,7 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
+			"@root/*": ["*"],
 			"@components/*": ["src/components/*"],
 			"@types/*": ["src/types/*"],
 			"@types": ["src/types/"],

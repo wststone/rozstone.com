@@ -15,12 +15,11 @@ const ContentLinks = [
 ];
 
 const Header: FunctionComponent = () => {
-	const { asPath } = useRouter();
+	const { asPath, locale } = useRouter();
 	const [_, navName] = asPath.split("/");
-
 	return (
 		<header className="flex items-center py-5 px-3">
-			<Link href="/">
+			<Link href="/" locale={locale}>
 				<a className="rounded-full focus:ring-2 p-0.5" target="_self">
 					<HiOutlineHome className="h-6 w-6 text-neutral-600 dark:text-neutral-200" />
 				</a>
@@ -31,6 +30,7 @@ const Header: FunctionComponent = () => {
 						<ContentLink
 							key={nav.link}
 							link={nav.link}
+							locale={locale}
 							isCurrent={navName === nav.link}
 						/>
 					))}

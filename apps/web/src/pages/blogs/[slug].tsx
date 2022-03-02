@@ -13,10 +13,11 @@ import Layout from "@components/Layout";
 import Post from "@components/Post";
 import { serialize } from "next-mdx-remote/serialize";
 import { SingleBlogProps } from "@types";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const SingleBlog: FC<SingleBlogProps> = ({ post }) => {
-	const router = useRouter();
-	if (!router.isFallback && !post?.slug) {
+	const { isFallback, locale } = useRouter();
+	if (!isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />;
 	}
 	return (
@@ -37,7 +38,7 @@ type BlogStaticPropParams = {
 export const getStaticProps: GetStaticProps<
 	SingleBlogProps,
 	BlogStaticPropParams
-> = async ({ params }) => {
+> = async ({ params, locale }) => {
 	const { slug } = params;
 	const {
 		content,
@@ -48,6 +49,7 @@ export const getStaticProps: GetStaticProps<
 		// @ts-ignore
 		mdxOptions,
 	});
+	const translation = await serverSideTranslations(locale, ["common"]);
 
 	return {
 		props: {
@@ -56,12 +58,21 @@ export const getStaticProps: GetStaticProps<
 				meta,
 				slug: realSlug,
 			},
+			...translation,
 		},
 	};
 };
 
-export const getStaticPaths: GetStaticPaths = () => {
-	const paths = getSlugs(blogsDirectory).map(slug => ({ params: { slug } }));
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+	const paths = locales.reduce((acc, next) => {
+		return [
+			...acc,
+			...getSlugs(blogsDirectory).map(slug => ({
+				params: { slug },
+				locale: next,
+			})),
+		];
+	}, []); //set initial value as a empty array
 
 	return {
 		paths,

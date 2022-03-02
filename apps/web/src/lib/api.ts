@@ -7,7 +7,7 @@ import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 import rehypeExternalLinks from "rehype-external-links";
-
+import rehyperemark from "rehype-remark";
 
 export const blogsDirectory = join(process.cwd(), "_blogs");
 export const notesDirectory = join(process.cwd(), "_notes");
@@ -54,11 +54,12 @@ export async function getAllPosts(directory: string = blogsDirectory) {
 	return posts;
 }
 
+
 export const mdxOptions = {
 	rehypePlugins: [
 		rehypeSlug,
 		[rehypeAutolinkHeadings, { behavior: "wrap" }],
 		rehypeHighlight,
-		rehypeExternalLinks
+		rehypeExternalLinks,
 	],
 };

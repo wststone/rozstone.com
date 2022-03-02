@@ -16,10 +16,10 @@ const I18 = () => {
 					onMouseLeave={toggle}
 				>
 					<Link href="/zh">
-						<a className="py-1 px-2">简体中文</a>
+						<a className="py-2 px-6">简体中文</a>
 					</Link>
 					<Link href="/en">
-						<a className="py-1 px-2">English</a>
+						<a className="py-2 px-6">English</a>
 					</Link>
 				</div>
 			)}
