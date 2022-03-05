@@ -46,11 +46,11 @@ export const getStaticProps: GetStaticProps<
 		slug: realSlug,
 	} = await getContentBySlug(slug, blogsDirectory);
 	const mdxSource = await serialize(content, {
-		// @ts-ignore
+		//@ts-ignore
 		mdxOptions,
 	});
 	const translation = await serverSideTranslations(locale, ["common"]);
-
+	
 	return {
 		props: {
 			post: {

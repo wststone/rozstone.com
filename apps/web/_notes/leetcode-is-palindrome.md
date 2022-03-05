@@ -11,7 +11,8 @@ tags:
   - leetcode
 ---
 
-# Is Palindrome
+## Is Palindrome
+
 ```ts
 function isPalindrome(x: number): boolean {
 	const xStr = x.toString().split("");

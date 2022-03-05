@@ -3,12 +3,12 @@ import PostHeader from "./PostHeader";
 import PostContent from "./PostContent";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import "highlight.js/styles/atom-one-dark.css";
-import styles from "@styles/post.module.css";
+import styles from "@styles/post.module.scss";
 
 const Post: FunctionComponent<{
 	title: string;
 	date: string;
-	source: MDXRemoteSerializeResult<Record<string, unknown>>;
+	source: MDXRemoteSerializeResult
 	tags?: string[];
 	updating?: boolean;
 }> = ({ title, date, source, tags }) => {

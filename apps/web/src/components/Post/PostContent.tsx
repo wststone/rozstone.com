@@ -2,7 +2,7 @@ import { FC } from "react";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
 interface PostContentProps {
-	source: MDXRemoteSerializeResult<Record<string, unknown>>;
+	source: MDXRemoteSerializeResult
 }
 
 const PostContent: FC<PostContentProps> = ({ source }) => {

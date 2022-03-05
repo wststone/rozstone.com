@@ -26,7 +26,7 @@ export type Blog = {
 
 export type SingleBlogProps = {
 	post: {
-		source: MDXRemoteSerializeResult<Record<string, unknown>>;
+		source: MDXRemoteSerializeResult;
 		meta: {
 			title: string;
 			ogImage: {

@@ -1,6 +1,6 @@
 ---
 title: 'Building this site'
-excerpt: 'I Discovered this behavior at work, i share some details'
+excerpt: 'Some insights of building this site'
 date: '2022-01-30T05:35:07.322Z'
 ogImage:
   url: '/assets/blog/hello-world/cover.jpg'
@@ -9,27 +9,35 @@ tags:
   - typescript
   - react
   - blog
+updating: true
 ---
 
 
-# Features I want to Implement
+## Features I want to Implement
 
-## 123
+- [ ] Use Slidedev as another option to view articles, not sure this is going to work.
+- [ ] Implement some kind of sandbox environment, so people can expirement with the stuff i wrote.
+- [ ] Redirect github io pages to my own domain
+- [ ] Add internationalization support
+  - [x] Language toggle in URL params
+  - [x] Toggle languages in UI (A button)
+  - [ ] A **sustainable** way to translate each post
+- [ ] Add UI Components
+  - [x] Checkbox
+  - [ ] Dropdown with really good **accessibility**
+  - [ ] Code playground
+  - [ ] Build a design system
+- [ ] Add Security/Data Monitor
+- [ ] Play Music in the background
+  
+## Features I don't want to Implement
 
-- [x] Parent 1
-    - [X] Child - 1
-    - [X] Child - 2
-    - [X] Child - 3
-    - [X] Child - 4
+There are some features other blog sites implemented, but I don't think its's necessary or useful.
 
-## Building this site (updating)
+### User system
 
-## (2022-02-07) At Work
 
-- Working on Basics
-- W
-
-## (2022-02-07)
+## Seprate Package for building UI
 
 I Decided to stop using tailwind for the ui package, there are few reasons:
 
@@ -37,7 +45,7 @@ I Decided to stop using tailwind for the ui package, there are few reasons:
 
 ```js
 // ./styles/globals.css:4:0
-// Module not found: Can't resolve './...'
+// Module not found: Can't resolve './...'   
 // Import trace for requested module:
 // ./styles/globals.css  
 // ./src/pages/_app.tsx
@@ -47,3 +55,8 @@ I Decided to stop using tailwind for the ui package, there are few reasons:
 - I think using tailwind is pretty good for **rapidily** developing UI, but for a component (library) that needs to be flexible and receive props for different styles, it kind of goes against the purpose of a library
 
 - I also want to try out other styling libraies to see how it intergates react, typescript and learn in the process
+
+## Understand the difference between Remark and Rehype
+
+In short, Remark processes markdown files while Rehype processes html files
+[Detailed Article](https://www.ryanfiller.com/blog/remark-and-rehype-plugins)
