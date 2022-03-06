@@ -13,6 +13,7 @@ import type { SingleBlogProps } from "@types";
 import { FC } from "react";
 import Head from "next/head";
 import { serialize } from "next-mdx-remote/serialize";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Notes: FC<SingleBlogProps> = ({ post }) => {
 	const router = useRouter();
@@ -33,7 +34,7 @@ const Notes: FC<SingleBlogProps> = ({ post }) => {
 export const getStaticProps: GetStaticProps<
 	SingleBlogProps,
 	{ slug: string }
-> = async ({ params }) => {
+> = async ({ params, locale }) => {
 	const { slug } = params;
 	const {
 		content,
@@ -44,7 +45,7 @@ export const getStaticProps: GetStaticProps<
 		// @ts-ignore
 		mdxOptions,
 	});
-
+	const translation = await serverSideTranslations(locale, ["common"]);
 	return {
 		props: {
 			post: {
@@ -52,12 +53,21 @@ export const getStaticProps: GetStaticProps<
 				meta,
 				slug: realSlug,
 			},
+			...translation,
 		},
 	};
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-	const paths = getSlugs(notesDirectory).map(slug => ({ params: { slug } }));
+export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
+	const paths = locales.reduce((acc, next) => {
+		return [
+			...acc,
+			...getSlugs(notesDirectory).map(slug => ({
+				params: { slug },
+				locale: next,
+			})),
+		];
+	}, []);
 
 	return {
 		paths,

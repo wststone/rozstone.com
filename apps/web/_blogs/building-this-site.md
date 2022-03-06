@@ -15,7 +15,7 @@ updating: true
 
 ## Features I want to Implement
 
-- [ ] Use Slidedev as another option to view articles, not sure this is going to work.
+- [ ] Use **Slidedev** as another option to view articles, not sure this is going to work.
 - [ ] Implement some kind of sandbox environment, so people can expirement with the stuff i wrote.
 - [ ] Redirect github io pages to my own domain
 - [ ] Add internationalization support
@@ -36,12 +36,11 @@ There are some features other blog sites implemented, but I don't think its's ne
 
 ### User system
 
-
 ## Seprate Package for building UI
 
-I Decided to stop using tailwind for the ui package, there are few reasons:
+I Decided to stop using tailwind for the ui package, there are few reasons:  
 
-- While compiling, it kept throwing errors because tailwind specified location is outside of the web folder, the ui package also has the in the requested module
+- While compiling, it kept throwing errors because tailwind specified location is outside of the web folder, the ui package also has the in the requested module:
 
 ```js
 // ./styles/globals.css:4:0
