@@ -27,9 +27,18 @@
 	}
 	ul {
 		li {
+			@apply list-item;
+		}
+	}
+	ul[class="contains-task-list"] {
+		// styles for checkbox lists
+		li {
 			@apply text-xl my-0.5 px-2;
 			input[type="checkbox"] {
 				@apply w-4 h-4 mr-1;
+			}
+			strong {
+				@apply text-2xl text-rose-500;
 			}
 		}
 	}
