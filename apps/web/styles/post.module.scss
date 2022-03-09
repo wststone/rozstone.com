@@ -2,21 +2,21 @@
 .post article {
 	@apply text-gray-800 dark:text-neutral-200;
 	h1 {
-		@apply text-4xl font-medium my-2;
+		@apply text-4xl font-medium my-4;
 	}
 	h2 {
-		@apply text-3xl font-medium my-2;
+		@apply text-3xl font-medium my-4;
 	}
 	h3 {
-		@apply text-3xl font-medium my-1;
+		@apply text-3xl font-medium my-3;
 	}
 	h4 {
-		@apply text-2xl font-medium my-1;
+		@apply text-2xl font-medium my-3;
 	}
 	p {
-		@apply text-xl my-0.5;
+		@apply text-xl my-1;
 		strong {
-			@apply text-rose-600;
+			@apply text-rose-700;
 		}
 		a {
 			@apply capitalize text-teal-900 mx-1;
@@ -24,21 +24,28 @@
 	}
 	pre {
 		@apply text-xl my-1;
+		code {
+			// @apply w-fit;
+		}
 	}
 	ul {
+		@apply list-none;
 		li {
-			@apply list-item;
+			@apply list-disc;
+			li {
+				@apply list-circle;
+			}
 		}
 	}
 	ul[class="contains-task-list"] {
 		// styles for checkbox lists
 		li {
-			@apply text-xl my-0.5 px-2;
+			@apply text-xl my-0.5 px-3;
 			input[type="checkbox"] {
 				@apply w-4 h-4 mr-1;
 			}
 			strong {
-				@apply text-2xl text-rose-500;
+				@apply text-2xl text-rose-600;
 			}
 		}
 	}

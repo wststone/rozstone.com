@@ -3,7 +3,7 @@ title: 'Create your new Function'
 excerpt: 'How to create your own new Function in javascript'
 date: '2022-01-30T05:35:07.322Z'
 ogImage:
-  url: '/assets/blog/hello-world/cover.jpg'
+  url: "/assets/images/react.png"
 tags:
   - javascript
   - 面试

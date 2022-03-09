@@ -4,6 +4,7 @@ import { getAllPosts } from "../../lib/api";
 import { FC } from "react";
 import { Blog } from "@types";
 import { BlogList } from "@components/List";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 interface BlogListsProps {
 	allBlogs: Blog[];
@@ -17,11 +18,12 @@ const BlogListPage: FC<BlogListsProps> = ({ allBlogs }) => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
 	const allBlogs = await getAllPosts();
+	const translation = await serverSideTranslations(locale, ["common"]);
 
 	return {
-		props: { allBlogs },
+		props: { allBlogs, ...translation },
 	};
 };
 

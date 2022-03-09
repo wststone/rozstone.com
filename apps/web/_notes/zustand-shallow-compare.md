@@ -3,7 +3,7 @@ title: 'Zustand Shallow Compare Function'
 excerpt: 'Breaking down the source code of zustand shallow compare function'
 date: '2020-03-16T05:35:07.322Z'
 ogImage:
-  url: '/assets/blog/hello-world/cover.jpg'
+  url: "/assets/images/react.png"
 tags:
   - javascript
   - typescript

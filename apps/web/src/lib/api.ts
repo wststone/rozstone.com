@@ -8,6 +8,7 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeHighlight from "rehype-highlight";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
+import remarkMdx from "remark-mdx";
 
 export const blogsDirectory = join(process.cwd(), "_blogs");
 export const notesDirectory = join(process.cwd(), "_notes");
@@ -55,7 +56,7 @@ export async function getAllPosts(directory: string = blogsDirectory) {
 }
 
 export const mdxOptions = {
-	remarkPlugins: [remarkGfm],
+	remarkPlugins: [remarkMdx, remarkGfm],
 	rehypePlugins: [
 		rehypeSlug,
 		[rehypeAutolinkHeadings, { behavior: "wrap" }],

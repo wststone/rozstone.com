@@ -29,7 +29,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
 				animate="enter"
 				exit="exit"
 				transition={{ type: "linear" }}
-				className="p-5"
+				className="p-5 m-auto max-w-5xl"
 				{...props}
 			>
 				{children}

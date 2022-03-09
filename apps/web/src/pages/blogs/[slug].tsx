@@ -16,7 +16,7 @@ import { SingleBlogProps } from "@types";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const SingleBlog: FC<SingleBlogProps> = ({ post }) => {
-	const { isFallback, locale } = useRouter();
+	const { isFallback } = useRouter();
 	if (!isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />;
 	}
@@ -50,7 +50,7 @@ export const getStaticProps: GetStaticProps<
 		mdxOptions,
 	});
 	const translation = await serverSideTranslations(locale, ["common"]);
-	
+
 	return {
 		props: {
 			post: {

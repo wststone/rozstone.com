@@ -1,14 +1,20 @@
 import { FC } from "react";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import CodePlayGround from "../CodePlayGround";
 
 interface PostContentProps {
-	source: MDXRemoteSerializeResult
+	source: MDXRemoteSerializeResult;
 }
 
 const PostContent: FC<PostContentProps> = ({ source }) => {
 	return (
-		<article>
-			<MDXRemote {...source} />
+		<article role="article">
+			<MDXRemote
+				{...source}
+				components={{
+					CodePlayGround,
+				}}
+			/>
 		</article>
 	);
 };

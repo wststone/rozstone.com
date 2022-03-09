@@ -3,7 +3,7 @@ title: "tips"
 excerpt: "Tips I Gathered In everyday development"
 date: "2022-01-30T05:35:07.322Z"
 ogImage:
-    url: "/assets/blog/hello-world/cover.jpg"
+    url: "/assets/images/react.png"
 tags:
     - javascript
     - typescript
@@ -44,7 +44,7 @@ function App() {
 
 First of all, there are only a few use cases where you only need to toggle a boolean state. I actually saw this when i was browsing the moti docs. [moti-docs](https://moti.fyi/examples/exit-before-enter)
 
-## 2. Global Regular Expression in javascript is dangerous
+## 2. *Global* Regular Expression in javascript is dangerous
 
 Thought I was doing a performance boost, but it actually broke my code
 
@@ -53,3 +53,7 @@ Thought I was doing a performance boost, but it actually broke my code
 ```js
 const SQUARE_BRACKETS = new RegExp(\[\[\]]\, "g")
 ```
+
+## 3. React Live
+
+<CodePlayGround code="<strong>Hello World!</strong>" /> 

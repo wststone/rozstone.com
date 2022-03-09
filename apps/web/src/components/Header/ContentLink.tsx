@@ -21,7 +21,7 @@ const ContentLink: FC<ContentLinkProps> = ({
 				target="_self"
 				className="capitalize text-lg sm:text-xl p-0.5 text-neutral-600 dark:text-neutral-200 cursor-pointer"
 				layout
-				whileHover={{ scale: 1.02, y: -5 }}
+				whileHover={{ scale: 1.02, y: -3 }}
 			>
 				{t(link)}
 				{isCurrent && (

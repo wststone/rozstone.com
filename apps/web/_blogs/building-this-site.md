@@ -3,7 +3,7 @@ title: 'Building this site'
 excerpt: 'Some insights of building this site'
 date: '2022-01-30T05:35:07.322Z'
 ogImage:
-  url: '/assets/blog/hello-world/cover.jpg'
+  url: "/assets/images/react.png"
 tags:
   - javascript
   - typescript
@@ -26,6 +26,8 @@ updating: true
   - [x] Checkbox
   - [ ] Dropdown with really good **accessibility**
   - [ ] Code playground
+    - [x] React Live
+    - [ ] Sandbox Link
   - [ ] Build a design system
 - [ ] Add Security/Data Monitor
 - [ ] Play Music in the background
@@ -34,7 +36,9 @@ updating: true
 
 There are some features other blog sites implemented, but I don't think its's necessary or useful.
 
-### User system
+- User system
+
+I think
 
 ## Seprate Package for building UI
 
@@ -42,13 +46,13 @@ I Decided to stop using tailwind for the ui package, there are few reasons:
 
 - While compiling, it kept throwing errors because tailwind specified location is outside of the web folder, the ui package also has the in the requested module:
 
-```js
-// ./styles/globals.css:4:0
-// Module not found: Can't resolve './...'   
-// Import trace for requested module:
-// ./styles/globals.css  
-// ./src/pages/_app.tsx
-// https://nextjs.org/docs/messages/module-not-found
+```sh
+# ./styles/globals.css:4:0
+# Module not found: Can't resolve './...' 
+# Import trace for requested module:
+# ./styles/globals.css  
+# ./src/pages/_app.tsx
+# https://nextjs.org/docs/messages/module-not-found
 ```
 
 - I think using tailwind is pretty good for **rapidily** developing UI, but for a component (library) that needs to be flexible and receive props for different styles, it kind of goes against the purpose of a library
@@ -57,5 +61,5 @@ I Decided to stop using tailwind for the ui package, there are few reasons:
 
 ## Understand the difference between Remark and Rehype
 
-In short, Remark processes markdown files while Rehype processes html files
+In short, Remark processes *markdown* files while Rehype processes *html* files. For example: 
 [Detailed Article](https://www.ryanfiller.com/blog/remark-and-rehype-plugins)

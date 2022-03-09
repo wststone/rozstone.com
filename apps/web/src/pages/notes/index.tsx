@@ -5,6 +5,7 @@ import { Blog } from "@types";
 import Layout from "@components/Layout";
 import { NoteList } from "@components/List";
 import { GetStaticProps } from "next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 type HomeProps = {
 	allPosts: Blog[];
@@ -23,11 +24,12 @@ const NoteListPage: FC<HomeProps> = ({ allPosts }) => {
 	);
 };
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
 	const allPosts = await getAllPosts(notesDirectory);
-
+	const translation = await serverSideTranslations(locale, ["common"]);
+	
 	return {
-		props: { allPosts },
+		props: { allPosts, ...translation },
 	};
 };
 
