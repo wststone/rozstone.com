@@ -1,24 +1,28 @@
+import { useTranslation } from "next-i18next";
 import { FC, useEffect, useState } from "react";
-import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
 import { useDarkMode } from "@logics";
+import { Tooltip } from "ui";
+import DarkModeButton from "./DarkModeButton";
 
 const DarkMode: FC = () => {
 	const [isDark, toggleDarkMode] = useDarkMode();
 	const [mounted, setMounted] = useState<boolean>(false);
+	const { t } = useTranslation();
 	useEffect(() => setMounted(true), []);
 	if (!mounted) return null;
 	return (
-		<button
-			type="button"
-			className="rounded-full focus:ring-2 p-0.5"
-			onClick={toggleDarkMode}
+		<Tooltip
+			trigger={
+				<DarkModeButton
+					isDark={isDark}
+					toggleDarkMode={toggleDarkMode}
+				/>
+			}
 		>
-			{isDark ? (
-				<MdOutlineLightMode className="h-6 w-6 text-neutral-200" />
-			) : (
-				<MdOutlineDarkMode className="h-6 w-6 text-neutral-600" />
-			)}
-		</button>
+			<button type="button" onClick={toggleDarkMode} className="text-sm">
+				{t(isDark ? "darkMode" : "lightMode")}
+			</button>
+		</Tooltip>
 	);
 };
 

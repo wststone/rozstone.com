@@ -25,7 +25,7 @@ const Header: FunctionComponent = () => {
 				</a>
 			</Link>
 			<AnimatePresence>
-				<nav className="flex ml-auto space-x-2 items-center sm:space-x-3">
+				<nav className="flex ml-auto space-x-2 items-center sm:space-x-4">
 					{ContentLinks.map(nav => (
 						<ContentLink
 							key={nav.link}
