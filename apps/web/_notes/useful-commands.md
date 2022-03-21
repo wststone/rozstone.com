@@ -50,4 +50,15 @@ git config --local core.fileMode false
 git remote add/remove [name] [link]
 ```
 
-0 0 0 3px rgba(9,105,218,0.3)
+- skip precommit hook 
+
+```sh
+git commit -m "don't verify this time" --no-verify
+```
+
+github input shadow
+```css
+.input:focus {
+  box-shadow: 0 0 0 3px rgba(9,105,218,0.3);
+}
+```
