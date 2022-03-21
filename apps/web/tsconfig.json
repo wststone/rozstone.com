@@ -10,7 +10,8 @@
 			"@types/*": ["src/types/*"],
 			"@types": ["src/types/"],
 			"@logics": ["src/logics/"],
-			"@styles/*": ["./styles/*"]
+			"@hooks": ["src/hooks/"],
+			"@styles/*": ["./styles/*"],
 		}
 	}
 }

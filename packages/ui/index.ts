@@ -1,2 +1,4 @@
-export * from "./Tag"
-export * from "./Dropdown"
+export { default as Tag } from "./Tag";
+export { default as Dropdown } from "./Dropdown";
+export { default as HoverCard } from "./HoverCard";
+export { default as Tooltip } from "./Tooltip";

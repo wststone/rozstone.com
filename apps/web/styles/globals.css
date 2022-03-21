@@ -29,3 +29,7 @@
 html {
 	@apply font-Comfortaa;
 }
+
+/* html :focus{
+	outline: none;
+} */
