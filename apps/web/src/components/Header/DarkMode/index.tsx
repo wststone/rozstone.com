@@ -11,17 +11,8 @@ const DarkMode: FC = () => {
 	useEffect(() => setMounted(true), []);
 	if (!mounted) return null;
 	return (
-		<Tooltip
-			trigger={
-				<DarkModeButton
-					isDark={isDark}
-					toggleDarkMode={toggleDarkMode}
-				/>
-			}
-		>
-			<button type="button" onClick={toggleDarkMode} className="text-sm">
-				{t(isDark ? "darkMode" : "lightMode")}
-			</button>
+		<Tooltip trigger={<DarkModeButton isDark={isDark} />} onClick={toggleDarkMode}>
+			{t(isDark ? "darkMode" : "lightMode")}
 		</Tooltip>
 	);
 };

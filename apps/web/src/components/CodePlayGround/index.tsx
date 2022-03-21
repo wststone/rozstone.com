@@ -9,7 +9,7 @@ const CodePlayGround: FC<CodePlayGroundProps> = ({ code }) => {
 	return (
 		<LiveProvider code={code}>
 			<div className="flex items-center justify-between">
-				<LiveEditor className="border border-sky-200 shadow shadow-sky-400 outline-none"/>
+				<LiveEditor className="border border-sky-200"/>
 				<LiveError />
 				<LivePreview />
 			</div>
