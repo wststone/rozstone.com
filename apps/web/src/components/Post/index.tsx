@@ -1,22 +1,23 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect } from "react";
 import PostHeader from "./PostHeader";
 import PostContent from "./PostContent";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
-import "highlight.js/styles/atom-one-dark.css";
 import styles from "@styles/post.module.scss";
+// import "prismjs/themes/prism-dark.min.css";
+// import "@styles/atom-one-dark.css";
 
 const Post: FunctionComponent<{
 	title: string;
 	date: string;
-	source: MDXRemoteSerializeResult
+	source: MDXRemoteSerializeResult;
 	tags?: string[];
 	updating?: boolean;
 }> = ({ title, date, source, tags }) => {
 	return (
-		<div className={styles.post}>
+		<article role="article" className={styles.post}>
 			<PostHeader title={title} date={date} tags={tags} />
 			<PostContent source={source} />
-		</div>
+		</article>
 	);
 };
 

@@ -8,14 +8,14 @@ interface PostContentProps {
 
 const PostContent: FC<PostContentProps> = ({ source }) => {
 	return (
-		<article role="article">
+		<section role="contentinfo">
 			<MDXRemote
 				{...source}
 				components={{
 					CodePlayGround,
 				}}
 			/>
-		</article>
+		</section>
 	);
 };
 

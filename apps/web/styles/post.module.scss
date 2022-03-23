@@ -1,17 +1,17 @@
 /* anchored heading styles */
-.post article {
+.post section {
 	@apply text-gray-800 dark:text-neutral-200;
 	h1 {
-		@apply text-4xl font-medium my-4;
+		@apply text-5xl font-bold my-4;
 	}
 	h2 {
-		@apply text-3xl font-medium my-4;
+		@apply text-3xl font-semibold my-4;
 	}
 	h3 {
-		@apply text-3xl font-medium my-3;
+		@apply text-2xl font-medium my-3;
 	}
 	h4 {
-		@apply text-2xl font-medium my-3;
+		@apply text-xl font-medium my-3;
 	}
 	p {
 		@apply text-xl my-1;
@@ -19,13 +19,13 @@
 			@apply text-rose-700;
 		}
 		a {
-			@apply capitalize text-teal-900 mx-1;
+			@apply capitalize text-teal-900 mx-1 font-semibold;
 		}
 	}
 	pre {
-		@apply text-xl my-1;
+		@apply text-sm sm:text-base lg:text-xl my-3 /*inline-flex justify-center w-full*/;
 		code {
-			// @apply w-fit;
+			@apply rounded-sm;
 		}
 	}
 	ul {
