@@ -12,18 +12,13 @@ tags:
   - state-management
 ---
 
-## Zustand Shallow Compare Function
-There are a lot of state-mangement library in the react ecosystem. Zustand is probably my favorite, when i was reading through their source code, I have found this.
-When i
-We can break this down into 4 parts which essentially are just 4 expressions:
-
-- something
-- something
-- something
-- something
+## Understanding the Shallow Compare Function in Zustand
+There are a lot of state-mangement library in the react ecosystem. [Zustand](https://github.com/pmndrs/zustand) is probably my favorite.
+Let's take a look at the [source code](https://github.com/pmndrs/zustand/blob/main/src/shallow.ts), and break it down step by step:
 
 ```ts
 export default function shallow<T, U>(objA: T, objB: U) {
+  const num: number = 1;
   // Strict Equality Check
   if (Object.is(objA, objB)) { 
     return true
@@ -52,10 +47,22 @@ export default function shallow<T, U>(objA: T, objB: U) {
 }
 ```
 
-Let's check this out
-```ts 
+We can see that there are 4 *if* statements, which are 4 expressions we can break down seperately.
+
+- Strict Equality Check between two objects
+
+- Handle Special case of *null*
+
+- Check if two object has same amount of keys
+
+- Check each key and value pair
+
+### The **Object.is** Method
+
+```ts
 if (Object.is(objA, objB)) { 
     return true
-  }
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
+}
 ```
+
+[Object.is](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) is a method of a object

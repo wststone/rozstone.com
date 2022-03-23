@@ -7,7 +7,7 @@ ogImage:
 tags:
   - javascript
   - typescript
-  - 面试
+  - interview
   - leetcode
 ---
 
