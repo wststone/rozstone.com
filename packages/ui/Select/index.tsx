@@ -2,14 +2,10 @@ import { FC } from "react";
 import {
 	Root,
 	Value,
-	ScrollUpButton,
-	Group,
 	ItemText,
 	ItemIndicator,
-	Label,
 	Separator,
 	SelectProps as SelectRootProps,
-	ScrollDownButton,
 } from "@radix-ui/react-select";
 import SelectTrigger from "./SelectTrigger";
 import SelectTriggerIcon from "./SelectTriggerIcon";
@@ -29,7 +25,6 @@ const Select: FC<SelectProps> = ({ data, children, ...props }) => {
 				<SelectTriggerIcon />
 			</SelectTrigger>
 			<SelectContent>
-				{/* <ScrollUpButton /> */}
 				<SelectViewport>
 					{data.map(d => (
 						<SelectItem value={d} key={d}>
@@ -37,17 +32,8 @@ const Select: FC<SelectProps> = ({ data, children, ...props }) => {
 							<ItemIndicator />
 						</SelectItem>
 					))}
-
-					<Group>
-						<Label />
-						<SelectItem value={"测试3"}>
-							<ItemText>测试3</ItemText>
-							<ItemIndicator />
-						</SelectItem>
-					</Group>
 					<Separator />
 				</SelectViewport>
-				{/* <ScrollDownButton /> */}
 			</SelectContent>
 		</Root>
 	);

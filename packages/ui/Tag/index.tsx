@@ -1,21 +1,10 @@
-import { FC, ComponentPropsWithRef } from "react";
-import { styled } from "@stitches/react";
-
-interface TagProps extends ComponentPropsWithRef<"span"> {}
-
-const styledTag = styled("span", {
-	backgroundColor: "red",
-});
+import { FC } from "react";
+import { LabelProps } from "@radix-ui/react-label";
+import Label from "./Label";
+interface TagProps extends LabelProps {}
 
 const Tag: FC<TagProps> = ({ children, ...props }) => {
-	return (
-		<span
-			className="bg-red-50 text-red-500 px-3 py-0.5 rounded-2xl text-sm capitalize dark:bg-slate-600 dark:text-slate-50"
-			{...props}
-		>
-			{children}
-		</span>
-	);
+	return <Label {...props}>{children}</Label>;
 };
 
 export default Tag;
