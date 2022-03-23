@@ -2,7 +2,8 @@ import { FC, useCallback, useState } from "react";
 import { Blog } from "@types";
 import ListNoteItem from "./ListNoteItem";
 import Filter from "./Filter";
-
+import { randomItem } from "../../lib/utils";
+import { Select } from "ui";
 interface NoteListProp {
 	allNotes: Blog[];
 }
@@ -17,12 +18,17 @@ export const NoteList: FC<NoteListProp> = ({ allNotes }) => {
 		const notes = allNotes.filter(note => note.meta.tags?.includes(tag));
 		setFilteredNotes(notes);
 	}, []);
-
+	const allTags = allNotes.reduce((acc: string[], cur: Blog) => {
+		const tags = cur.meta.tags || [];
+		return Array.from(new Set([...acc, ...tags]));
+	}, []);
 	return (
-		<div className="px-8">
+		<section aria-labelledby="notes-heading" className="px-8">
 			<div className="flex justify-between">
-				<h3>{`123${filteredNotes.length}`}</h3>
-				<Filter filterNotes={filterNotes} />
+				<h2 id="notes-heading">notes</h2>
+				<Select data={allTags} defaultValue={randomItem(allTags)}>
+					标签筛选
+				</Select>
 			</div>
 			<ol className="grid grid-cols-1 gap-4 sm:grid-cols-3">
 				{filteredNotes.map(blog => (
@@ -38,7 +44,7 @@ export const NoteList: FC<NoteListProp> = ({ allNotes }) => {
 					/>
 				))}
 			</ol>
-		</div>
+		</section>
 	);
 };
 
