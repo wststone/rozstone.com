@@ -1,6 +1,6 @@
 import { format, parseISO } from "date-fns";
 import { FC } from "react";
-
+import { Tag } from "ui";
 interface PostHeaderProps {
 	title: string;
 	date: string;
@@ -18,12 +18,12 @@ const PostHeader: FC<PostHeaderProps> = ({ title, date, tags }) => {
 			{tags ? (
 				<div className="flex space-x-2 flex-wrap">
 					{tags.map(tag => (
-						<span
-							className="bg-red-50 text-red-500 px-3 my-0.5 py-0.5 rounded-2xl text-sm capitalize dark:bg-slate-600 dark:text-slate-50"
+						<Tag
+							// className="bg-red-50 text-red-500 px-3 my-0.5 py-0.5 rounded-2xl text-sm capitalize dark:bg-slate-600 dark:text-slate-50"
 							key={tag}
 						>
 							{tag}
-						</span>
+						</Tag>
 					))}
 				</div>
 			) : null}

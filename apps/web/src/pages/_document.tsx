@@ -6,6 +6,8 @@ export default class MyDocument extends Document {
 			<Html lang="en">
 				<Head>
 					<link rel="icon" href="/favicon/favicon.ico" />
+					<meta charSet="UTF-8" />
+					<meta name="author" content="Rozstone" />
 				</Head>
 				<body className="bg-neutral-50 dark:bg-neutral-800 transition-colors duration-300">
 				<DarkModeScript />

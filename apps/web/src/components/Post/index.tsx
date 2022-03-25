@@ -2,9 +2,9 @@ import { FunctionComponent, useEffect } from "react";
 import PostHeader from "./PostHeader";
 import PostContent from "./PostContent";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { useMarkdownEnhance } from "@hooks";
 import styles from "@styles/post.module.scss";
-// import "prismjs/themes/prism-dark.min.css";
-// import "@styles/atom-one-dark.css";
+import { CopyButton } from "../CodeBlock";
 
 const Post: FunctionComponent<{
 	title: string;
@@ -13,10 +13,18 @@ const Post: FunctionComponent<{
 	tags?: string[];
 	updating?: boolean;
 }> = ({ title, date, source, tags }) => {
+	const [articleRef, portal] = useMarkdownEnhance();
+
 	return (
-		<article role="article" className={styles.post}>
+		<article
+			ref={articleRef}
+			id="article"
+			role="article"
+			className={styles.post}
+		>
 			<PostHeader title={title} date={date} tags={tags} />
 			<PostContent source={source} />
+			{portal}
 		</article>
 	);
 };

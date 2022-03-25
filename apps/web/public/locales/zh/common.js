@@ -5,4 +5,5 @@ module.exports = {
 	switch: "切换",
 	darkMode: "暗黑模式",
 	lightMode: "亮色模式",
+	copyCode: "复制代码",
 };

@@ -5,4 +5,5 @@ module.exports = {
 	switch: "switch",
 	darkMode: "darkmode",
 	lightMode: "lightmode",
+	copyCode: "copy code",
 };
