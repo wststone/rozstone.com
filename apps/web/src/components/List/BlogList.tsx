@@ -12,11 +12,7 @@ interface BlogListsProp {
 export const BlogList: FC<BlogListsProp> = ({ allBlogs }) => {
 	const { locale } = useRouter();
 	return (
-		<section
-			title="blogs"
-			aria-labelledby="blogs-heading"
-			className="flex flex-col p-5"
-		>
+		<section aria-labelledby="blogs-heading" className="flex flex-col p-5">
 			<div className="flex items-center justify-between border-l-4 border-slate-300 px-2 mb-3">
 				<h2
 					id="blogs-heading"
@@ -25,7 +21,7 @@ export const BlogList: FC<BlogListsProp> = ({ allBlogs }) => {
 					Blogs
 				</h2>
 				<Link href="/blogs" locale={locale} scroll={false}>
-					<a className="mb-1 text-xl sm:text-2xl hover:text-gray-400">
+					<a className="mb-1 text-lg sm:text-xl hover:text-gray-400">
 						More Blogs
 					</a>
 				</Link>
