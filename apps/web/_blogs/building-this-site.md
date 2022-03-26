@@ -25,10 +25,15 @@ updating: true
 - [ ] Add UI Components
   - [x] Checkbox
   - [ ] Dropdown with really good **accessibility**
+  - [ ] Code Block
+    - [ ] Syntax highlight with dark mode support
+    - [ ] Line Number
+    - [ ] Copy code button
   - [ ] Code playground
     - [x] React Live
     - [ ] Sandbox Link
   - [ ] Build a design system
+  - [ ] Notification / Toast with keyboard support
 - [ ] Add Security/Data Monitor
 - [ ] Play Music in the background
   
