@@ -11,8 +11,15 @@ const PostHeader: FC<PostHeaderProps> = ({ title, date, tags }) => {
 	const time = parseISO(date);
 
 	return (
-		<div className="flex flex-col justify-center items-center space-y-1">
-			<h1 className="text-4xl capitalize text-center py-1 font-medium dark:text-neutral-100">
+		<section
+			role="heading"
+			aria-labelledby="post-header"
+			className="flex flex-col justify-center items-center space-y-1"
+		>
+			<h1
+				id="post-header"
+				className="text-4xl capitalize text-center py-1 font-medium dark:text-neutral-100"
+			>
 				{title}
 			</h1>
 			{tags ? (
@@ -30,7 +37,7 @@ const PostHeader: FC<PostHeaderProps> = ({ title, date, tags }) => {
 			<time dateTime={date} className="text-sm text-neutral-500 mt-1">
 				{format(time, "LLLL	d, yyyy")}
 			</time>
-		</div>
+		</section>
 	);
 };
 

@@ -6,4 +6,6 @@ module.exports = {
 	darkMode: "暗黑模式",
 	lightMode: "亮色模式",
 	copyCode: "复制代码",
+	copyCodeSuccess: "复制到剪切板成功",
+	copyCodeFail: "复制到剪切板失败",
 };

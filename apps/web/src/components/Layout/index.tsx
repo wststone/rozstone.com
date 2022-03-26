@@ -1,7 +1,9 @@
 import { FunctionComponent } from "react";
 import Header from "../Header";
 import Footer from "@components/Footer";
+import Toasts from "./Toasts";
 import { motion, Variants, HTMLMotionProps } from "framer-motion";
+import { ToastProvider } from "ui";
 
 interface LayoutProps extends HTMLMotionProps<"main"> {
 	header?: boolean;
@@ -14,6 +16,7 @@ const variants: Variants = {
 	exit: { opacity: 0, x: 0, y: -100 },
 };
 
+// This component is used to wrap the main content of the page.
 const Layout: FunctionComponent<LayoutProps> = ({
 	header = true,
 	footer = false,
@@ -21,8 +24,9 @@ const Layout: FunctionComponent<LayoutProps> = ({
 	...props
 }) => {
 	return (
-		<>
+		<ToastProvider>
 			{header && <Header />}
+			<Toasts />
 			<motion.main
 				variants={variants}
 				initial="hidden"
@@ -35,7 +39,7 @@ const Layout: FunctionComponent<LayoutProps> = ({
 				{children}
 			</motion.main>
 			{footer && <Footer />}
-		</>
+		</ToastProvider>
 	);
 };
 

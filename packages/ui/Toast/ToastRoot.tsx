@@ -1,6 +1,7 @@
 import { Root } from "@radix-ui/react-toast";
 import { VIEWPORT_PADDING } from "./ToastViewport";
 import { styled, keyframes } from "@stitches/react";
+import { green } from "@radix-ui/colors";
 
 const hide = keyframes({
 	"0%": { opacity: 1 },
@@ -23,9 +24,11 @@ const ToastRoot = styled(Root, {
 	boxShadow:
 		"hsl(206 22% 7% / 35%) 0px 10px 38px -10px, hsl(206 22% 7% / 20%) 0px 10px 20px -15px",
 	padding: 15,
-	display: "grid",
+	display: "flex",
 	alignItems: "center",
-
+	borderLeft: 4,
+	borderLeftStyle: "solid",
+	borderLeftColor: green.green10,
 	"@media (prefers-reduced-motion: no-preference)": {
 		'&[data-state="open"]': {
 			animation: `${slideIn} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,

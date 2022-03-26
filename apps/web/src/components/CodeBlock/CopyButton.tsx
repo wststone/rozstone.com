@@ -2,16 +2,24 @@ import { FC, useCallback } from "react";
 import { IoCopyOutline } from "react-icons/io5";
 import { useTranslation } from "next-i18next";
 import { Tooltip } from "ui";
+import useStore from "@store";
 
 const CopyButton: FC<{ content: string }> = ({ content }) => {
 	const { t } = useTranslation();
+	const addToast = useStore(useCallback(state => state.addToast, []));
 	const copyToClipBoard = useCallback(() => {
-		window.navigator.clipboard.writeText(content).then(() => {
-			console.log("success");
-		});
+		window.navigator.clipboard
+			.writeText(content)
+			.then(() => {
+				addToast({ content: t("copyCodeSuccess") });
+			})
+			.catch(() => {
+				addToast({ content: "copyCodeFail" });
+			});
 	}, [content]);
 	return (
 		<Tooltip
+			type="button"
 			className="absolute sm:right-4 sm:top-4"
 			onClick={copyToClipBoard}
 			trigger={

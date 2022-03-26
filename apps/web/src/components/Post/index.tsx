@@ -1,10 +1,9 @@
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent } from "react";
 import PostHeader from "./PostHeader";
 import PostContent from "./PostContent";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { useMarkdownEnhance } from "@hooks";
 import styles from "@styles/post.module.scss";
-import { CopyButton } from "../CodeBlock";
 
 const Post: FunctionComponent<{
 	title: string;

@@ -12,6 +12,7 @@
 			"@logics": ["src/logics/"],
 			"@hooks": ["src/hooks/"],
 			"@styles/*": ["./styles/*"],
+			"@store": ["src/store/"],
 		}
 	}
 }

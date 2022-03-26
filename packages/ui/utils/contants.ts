@@ -1,0 +1,1 @@
+export const MEDIA_SM = "@media (min-width: 640px)"

@@ -30,3 +30,4 @@ const Toast = () => {
 export default Toast;
 export { default as SimpleToast } from "./SimpleToast";
 export { Provider as ToastProvider };
+export { default as ToastViewport } from "./ToastViewport";

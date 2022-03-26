@@ -5,10 +5,11 @@ import { sync } from "glob";
 import type { ParsedBlog } from "@types";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypeHighlight from "rehype-highlight";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
 import remarkMdx from "remark-mdx";
+import rehypePrism from "rehype-prism-plus";
+import remarkPrism from "remark-prism";
 
 export const blogsDirectory = join(process.cwd(), "_blogs");
 export const notesDirectory = join(process.cwd(), "_notes");
@@ -56,11 +57,30 @@ export async function getAllPosts(directory: string = blogsDirectory) {
 }
 
 export const mdxOptions = {
-	remarkPlugins: [remarkMdx, remarkGfm],
+	remarkPlugins: [
+		remarkMdx,
+		remarkGfm,
+		[
+			remarkPrism,
+			{
+				plugins: [
+					"autolinker",
+					"command-line",
+					"data-uri-highlight",
+					"diff-highlight",
+					"inline-color",
+					"keep-markup",
+					"line-numbers",
+					"show-invisibles",
+					"treeview",
+				],
+			},
+		],
+	],
 	rehypePlugins: [
 		rehypeSlug,
 		[rehypeAutolinkHeadings, { behavior: "wrap" }],
-		rehypeHighlight,
 		rehypeExternalLinks,
+		// [rehypePrism, { showLineNumbers: true }],
 	],
 };
