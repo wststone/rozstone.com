@@ -30,6 +30,6 @@ html {
 	@apply font-Comfortaa;
 }
 
-/* html :focus{
-	outline: none;
-} */
+.remark-highlight {
+	position: relative;
+}
