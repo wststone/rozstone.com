@@ -6,6 +6,6 @@ module.exports = {
 	darkMode: "darkmode",
 	lightMode: "lightmode",
 	copyCode: "copy code",
-	copyCodeSuccess: "copy code to clipboard success!",
-	copyCodeFail: "copy code to clipboard fail!",
+	copyCodeSuccess: "copy code to clipboard success",
+	copyCodeFail: "copy code to clipboard fail",
 };

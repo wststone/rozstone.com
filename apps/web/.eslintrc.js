@@ -1,7 +1,9 @@
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
-	extends: ["next", "next/babel"],
-	env: {
-		amd: true,
-		node: true,
-	},
+	...require("config/eslint-next"),
+	parserOptions: {
+		root:true,
+		tsconfigRootDir:__dirname,
+		project:["tsconfig.json"],
+	}
 };

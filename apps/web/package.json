@@ -57,6 +57,7 @@
     "postcss": "8.4.5",
     "sass": "^1.49.9",
     "tailwindcss": "latest",
-    "tsconfig": "workspace:*"
+    "tsconfig": "workspace:*",
+    "config": "workspace:*"
   }
 }

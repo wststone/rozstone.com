@@ -14,9 +14,9 @@ const CopyButton: FC<{ content: string }> = ({ content }) => {
 				addToast({ content: t("copyCodeSuccess") });
 			})
 			.catch(() => {
-				addToast({ content: "copyCodeFail" });
+				addToast({ content: t("copyCodeFail") });
 			});
-	}, [content]);
+	}, [content, addToast, t]);
 	return (
 		<Tooltip
 			type="button"
