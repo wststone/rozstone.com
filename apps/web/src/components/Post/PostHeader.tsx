@@ -12,7 +12,6 @@ const PostHeader: FC<PostHeaderProps> = ({ title, date, tags }) => {
 
 	return (
 		<section
-			role="heading"
 			aria-labelledby="post-header"
 			className="flex flex-col justify-center items-center space-y-1"
 		>

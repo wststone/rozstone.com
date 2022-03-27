@@ -3,7 +3,6 @@ import {
 	Root,
 	Value,
 	ItemText,
-	ItemIndicator,
 	Separator,
 	SelectProps as SelectRootProps,
 } from "@radix-ui/react-select";
@@ -12,7 +11,8 @@ import SelectTriggerIcon from "./SelectTriggerIcon";
 import SelectContent from "./SelectContent";
 import SelectItem from "./SelectItem";
 import SelectViewport from "./SelectViewport";
-
+import SelectItemIndicator from "./SelectItemIndicator";
+import { CheckIcon } from "@radix-ui/react-icons";
 interface SelectProps extends SelectRootProps {
 	data: string[];
 }
@@ -29,7 +29,9 @@ const Select: FC<SelectProps> = ({ data, children, ...props }) => {
 					{data.map(d => (
 						<SelectItem value={d} key={d}>
 							<ItemText>{d}</ItemText>
-							<ItemIndicator />
+							<SelectItemIndicator>
+								<CheckIcon />
+							</SelectItemIndicator>
 						</SelectItem>
 					))}
 					<Separator />
