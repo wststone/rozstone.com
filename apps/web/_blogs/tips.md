@@ -18,7 +18,7 @@ Some Tips I thought of or learned during my everyday work.
 
 ## 1. Easier and cleaner Boolean state toggle in react
 
-If you only want to toggle a **boolean** state, instead of using useState, which you have to create another function to toggle the state, you can just use useReducer and pass the toggle function directly.
+If you only want to toggle a **boolean** state, instead of using [`useState`](https://beta.reactjs.org/apis/usestate), which you have to create another function to toggle the state, you can just use [`useReducer`](https://beta.reactjs.org/apis/usereducer) and pass the toggle function directly.
 
 ### Exmaple
 
@@ -31,13 +31,14 @@ function App() {
   }
   return <button onClick={toggleState}></button>
 }
+```
 
+```jsx
 // Do this
-function App() {
+function App() { 
   const [state, toggle] = useReducer(s => !s, false);
   return <button onClick={toggle}></button>
 }
-
 ```
 
 ### Why have I not think of this before?

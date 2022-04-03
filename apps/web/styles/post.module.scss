@@ -14,12 +14,21 @@
 		@apply text-xl font-medium my-3;
 	}
 	p {
-		@apply text-xl my-1;
+		@apply text-xl my-1 leading-7 sm:leading-8;
 		strong {
 			@apply text-rose-700;
 		}
 		a {
-			@apply capitalize text-teal-900 mx-1 font-semibold;
+			@apply capitalize text-teal-900 mx-0.5 font-semibold;
+			code {
+				@apply font-normal mx-0 normal-case; //段落中带链接的代码样式修改
+			}
+		}
+		a:hover {
+			@apply underline underline-offset-1 decoration-teal-600;
+		}
+		code {
+			@apply font-mono bg-indigo-200 text-indigo-500 px-1 py-0.5 rounded;
 		}
 	}
 	pre {
