@@ -1,15 +1,13 @@
 ---
 title: "tips"
 excerpt: "Tips I Gathered In everyday development"
-date: "2022-01-30T05:35:07.322Z"
 ogImage:
-    url: "/assets/images/react.png"
+  url: "/assets/images/react.png"
 tags:
-    - javascript
-    - typescript
-    - react
-    - blog
-updating: true
+  - javascript
+  - typescript
+  - react
+  - blog
 ---
 
 # Tip
@@ -58,3 +56,12 @@ const SQUARE_BRACKETS = new RegExp(\[\[\]]\, "g")
 ## 3. React Live
 
 <CodePlayGround code="<strong>Hello World!</strong>" /> 
+
+
+## YAML Read Error
+
+```sh
+can not read a block mapping entry; a multiline key may not be an implicit key at line
+```
+
+This is caused by mixing usage of single and double quotes.

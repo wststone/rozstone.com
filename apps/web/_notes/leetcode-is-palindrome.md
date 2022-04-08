@@ -1,7 +1,6 @@
 ---
-title: 'Is Palindrome'
-excerpt: 'LeetCode IsPalidrome'
-date: '2020-03-16T05:35:07.322Z'
+title: "Is Palindrome"
+excerpt: "LeetCode IsPalidrome"
 ogImage:
   url: "/assets/images/react.png"
 tags:

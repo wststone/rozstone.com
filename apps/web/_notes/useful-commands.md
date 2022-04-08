@@ -1,7 +1,6 @@
 ---
-title: 'Useful Commands'
-excerpt: 'Roman to integer verhard'
-date: '2022-02-07T05:35:07.322Z'
+title: "Useful Commands"
+excerpt: "Roman to integer verhard"
 ogImage:
   url: "/assets/images/react.png"
 tags:

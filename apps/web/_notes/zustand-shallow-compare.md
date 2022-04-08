@@ -1,7 +1,6 @@
 ---
-title: 'Zustand Shallow Compare Function'
-excerpt: 'Breaking down the source code of zustand shallow compare function'
-date: '2020-03-16T05:35:07.322Z'
+title: "Zustand Shallow Compare Function"
+excerpt: "Breaking down the source code of zustand shallow compare function"
 ogImage:
   url: "/assets/images/react.png"
 tags:

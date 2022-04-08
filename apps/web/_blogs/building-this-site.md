@@ -1,7 +1,6 @@
 ---
-title: 'Building this site'
-excerpt: 'Some insights of building this site'
-date: '2022-01-30T05:35:07.322Z'
+title: "Building this site"
+excerpt: "Some insights of building this site"
 ogImage:
   url: "/assets/images/react.png"
 tags:
@@ -36,6 +35,7 @@ updating: true
   - [ ] Notification / Toast with keyboard support
 - [ ] Add Security/Data Monitor
 - [ ] Play Music in the background
+- [X] File Time Metadata
   
 ## Features I don't want to Implement
 

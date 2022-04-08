@@ -8,7 +8,6 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeExternalLinks from "rehype-external-links";
 import remarkGfm from "remark-gfm";
 import remarkMdx from "remark-mdx";
-import rehypePrism from "rehype-prism-plus";
 import remarkPrism from "remark-prism";
 
 export const blogsDirectory = join(process.cwd(), "_blogs");
@@ -38,10 +37,15 @@ export async function getContentBySlug(
 ): Promise<ParsedBlog> {
 	const realSlug = slug.replace(/\.md$/, "");
 	const fullPath = join(directory, `${realSlug}.md`);
+	const { birthtime, mtime } = fs.statSync(fullPath);
 	const fileContents = fs.readFileSync(fullPath, "utf8");
 	const { data, content } = matter(fileContents);
 
-	return { content, meta: data, slug: realSlug } as ParsedBlog;
+	return {
+		content,
+		meta: { ...data, date: birthtime.toISOString() },
+		slug: realSlug,
+	} as ParsedBlog;
 }
 
 export async function getAllPosts(directory: string = blogsDirectory) {
