@@ -4,7 +4,7 @@ import { styled } from "@stitches/react";
 const SelectItemIndicator = styled(ItemIndicator, {
 	position: "absolute",
 	left: 0,
-	width: 25,
+	width: 24,
 	display: "inline-flex",
 	alignItems: "center",
 	justifyContent: "center",

@@ -4,14 +4,14 @@ import { Item } from "@radix-ui/react-select";
 
 const SelectItem = styled(Item, {
 	all: "unset",
-	fontSize: 13,
+	fontSize: 14,
 	lineHeight: 1,
 	color: violet.violet11,
-	borderRadius: 3,
+	borderRadius: 4,
 	display: "flex",
 	alignItems: "center",
-	height: 25,
-	padding: "0 35px 0 25px",
+	height: 24,
+	padding: "0 36px 0 24px",
 	position: "relative",
 	userSelect: "none",
 

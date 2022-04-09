@@ -10,7 +10,7 @@ const ToastViewport = styled(Viewport, {
 	display: "flex",
 	flexDirection: "column",
 	padding: VIEWPORT_PADDING,
-	gap: 10,
+	gap: 8,
 	width: 160,
 	maxWidth: "100vw",
 	margin: 0,
