@@ -11,9 +11,6 @@ export interface BlogMeta {
 	title: string;
 	tags?: string[];
 	coverImage: string;
-	ogImage: {
-		url: string;
-	};
 	excerpt: string;
 	updating?: boolean;
 }
@@ -29,13 +26,21 @@ export type SingleBlogProps = {
 		source: MDXRemoteSerializeResult;
 		meta: {
 			title: string;
-			ogImage: {
-				url: string;
-			};
+			excerpt: string;
 			date: string;
 			tags?: string[];
 		};
 		slug: string;
+	};
+};
+
+export type TableOfContent = {
+	title: string;
+	content: {
+		title: string;
+		content: {
+			title: string;
+		}[];
 	};
 };
 

@@ -1,8 +1,6 @@
 ---
 title: "Learning File Stat Time"
 excerpt: "Learning about time data in a file's metadata"
-ogImage:
-  url: "/assets/images/react.png"
 tags:
   - Linux
   - Nodejs

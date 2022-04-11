@@ -1,8 +1,6 @@
 ---
 title: "Useful Commands"
 excerpt: "Roman to integer verhard"
-ogImage:
-  url: "/assets/images/react.png"
 tags:
   - javascript
   - typescript

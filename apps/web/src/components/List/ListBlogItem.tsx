@@ -7,19 +7,15 @@ interface ListBlogItemProps {
 	date: string;
 	coverImage: string;
 	excerpt: string;
-	ogImage: {
-		url: string;
-	};
 	content: string;
-	updating?: boolean;
 	locale: string;
+	tags?: string[];
 }
 
 export const ListBlogItem: FunctionComponent<ListBlogItemProps> = ({
 	title,
 	slug,
 	excerpt,
-	updating,
 	locale,
 }) => {
 	return (
@@ -29,7 +25,7 @@ export const ListBlogItem: FunctionComponent<ListBlogItemProps> = ({
 					<div className="capitalize text-neutral-700 text-base font-[450] sm:text-2xl dark:text-neutral-300">
 						{title}
 					</div>
-					{updating && `updating`}
+
 					<p className="mt-1 text-sm text-neutral-600 sm:text-xl dark:text-neutral-400 line-clamp-3">
 						{excerpt}
 					</p>

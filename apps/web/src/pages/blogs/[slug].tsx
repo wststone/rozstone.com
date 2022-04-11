@@ -16,7 +16,7 @@ import { SingleBlogProps } from "@types";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const SingleBlog: FC<SingleBlogProps> = ({ post }) => {
-	const { isFallback } = useRouter();
+	const { isFallback, asPath } = useRouter();
 	if (!isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />;
 	}
@@ -24,7 +24,10 @@ const SingleBlog: FC<SingleBlogProps> = ({ post }) => {
 		<Layout>
 			<Head>
 				<title>{post.meta.title} | Rozstone's Blog</title>
-				<meta property="og:image" content={post.meta.ogImage.url} />
+				{/* <meta property="og:image" content={post.meta.ogImage.url} /> */}
+				<meta property="og:title" content={post.meta.title} />
+				<meta property="og:description" content={post.meta.excerpt} />
+				<meta property="og:url" content={asPath} />
 			</Head>
 			<Post source={post.source} {...post.meta} />
 		</Layout>

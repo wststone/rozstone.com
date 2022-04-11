@@ -2,8 +2,6 @@
 title: 'Youtuber to watch for learning'
 excerpt: 'Youtuber to watch for learning'
 date: '2022-03-23T05:35:07.322Z'
-ogImage:
-  url: "/assets/images/react.png"
 tags:
   - javascript
   - typescript
@@ -11,6 +9,16 @@ tags:
   - video
 ---
 
-## mCoding
+## Foreword
 
+
+### mCoding
+
+Languages:
 Python
+C++
+
+### Web Dev Simplified
+
+Languages:
+Javascript

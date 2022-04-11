@@ -1,8 +1,6 @@
 ---
 title: "Zustand Shallow Compare Function"
 excerpt: "Breaking down the source code of zustand shallow compare function"
-ogImage:
-  url: "/assets/images/react.png"
 tags:
   - javascript
   - typescript

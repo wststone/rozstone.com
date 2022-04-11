@@ -1,12 +1,10 @@
 ---
 title: "Is Palindrome"
 excerpt: "LeetCode IsPalidrome"
-ogImage:
-  url: "/assets/images/react.png"
 tags:
   - javascript
   - typescript
-  - 面试
+  - interview
   - leetcode
 ---
 

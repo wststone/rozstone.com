@@ -1,14 +1,10 @@
 ---
 title: "Building this site"
 excerpt: "Some insights of building this site"
-ogImage:
-  url: "/assets/images/react.png"
 tags:
-  - javascript
-  - typescript
   - react
-  - blog
-updating: true
+  - nextjs
+  - ui
 ---
 
 
@@ -36,6 +32,9 @@ updating: true
 - [ ] Add Security/Data Monitor
 - [ ] Play Music in the background
 - [X] File Time Metadata
+  [Check out my note doing this](/notes/file-time-metadata)
+- [x] Open Graph Meta Tags
+  C
   
 ## Features I don't want to Implement
 

@@ -1,7 +1,6 @@
 import { FC, useCallback, useMemo, useState } from "react";
 import { Blog } from "@types";
 import ListNoteItem from "./ListNoteItem";
-import { randomItem } from "../../lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { Select } from "ui";
 interface NoteListProp {
@@ -25,7 +24,12 @@ export const NoteList: FC<NoteListProp> = ({ allNotes }) => {
 	return (
 		<section aria-labelledby="notes-heading" className="px-8">
 			<div className="flex justify-between my-3">
-				<h2 id="notes-heading" className="text-2xl capitalize font-semibold">notes</h2>
+				<h2
+					id="notes-heading"
+					className="text-2xl capitalize font-semibold"
+				>
+					notes
+				</h2>
 				<Select
 					data={allTags}
 					value={tag || allTags[0]}
@@ -44,7 +48,6 @@ export const NoteList: FC<NoteListProp> = ({ allNotes }) => {
 							date={blog.meta.date}
 							coverImage={blog.meta.coverImage}
 							excerpt={blog.meta.excerpt}
-							ogImage={blog.meta.ogImage}
 							content={blog.content}
 						/>
 					))}

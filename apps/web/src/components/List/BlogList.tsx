@@ -35,7 +35,7 @@ export const BlogList: FC<BlogListsProp> = ({ allBlogs }) => {
 						date={blog.meta.date}
 						coverImage={blog.meta.coverImage}
 						excerpt={blog.meta.excerpt}
-						ogImage={blog.meta.ogImage}
+						
 						content={blog.content}
 						locale={locale}
 					/>

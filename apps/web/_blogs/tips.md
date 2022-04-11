@@ -1,8 +1,6 @@
 ---
 title: "tips"
 excerpt: "Tips I Gathered In everyday development"
-ogImage:
-  url: "/assets/images/react.png"
 tags:
   - javascript
   - typescript
