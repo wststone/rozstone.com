@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react";
 import PostHeader from "./PostHeader";
 import PostContent from "./PostContent";
+import TableOfContent from "../TableOfContent";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { useMarkdownEnhance } from "@hooks";
 import styles from "@styles/post.module.scss";
@@ -12,8 +13,9 @@ const Post: FunctionComponent<{
 	tags?: string[];
 	updating?: boolean;
 }> = ({ title, date, source, tags }) => {
-	const [articleRef, portal] = useMarkdownEnhance();
-
+	const { articleRef, portals, currentSection, tableOfContents } =
+		useMarkdownEnhance();
+	console.log(currentSection, tableOfContents);
 	return (
 		<article
 			ref={articleRef}
@@ -23,7 +25,8 @@ const Post: FunctionComponent<{
 		>
 			<PostHeader title={title} date={date} tags={tags} />
 			<PostContent source={source} />
-			{portal}
+			<TableOfContent tableOfContents={tableOfContents}/>
+			{portals}
 		</article>
 	);
 };
