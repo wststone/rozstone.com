@@ -12,6 +12,7 @@ module.exports = {
 	},
 	rules: {
 		"@next/next/no-html-link-for-pages": "off",
+		"react/no-unescaped-entities": ["warn"],
 	},
 	ignorePatterns: ["**/*.js", "node_modules", ".turbo", ".next", "public"],
 };
