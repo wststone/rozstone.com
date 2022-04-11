@@ -24,7 +24,7 @@ const Notes: FC<SingleBlogProps> = ({ post }) => {
 		<Layout>
 			<Head>
 				<title>{post.meta.title} | Rozstone's Notes</title>
-				<meta property="og:image" content={post.meta.ogImage.url} />
+				{/* <meta property="og:image" content={post.meta.ogImage.url} /> */}
 			</Head>
 			<Post source={post.source} {...post.meta} />
 		</Layout>
