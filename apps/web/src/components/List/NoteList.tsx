@@ -3,22 +3,25 @@ import { Blog } from "@types";
 import ListNoteItem from "./ListNoteItem";
 import { AnimatePresence, motion } from "framer-motion";
 import { Select } from "ui";
+import { useTranslation } from "next-i18next";
 interface NoteListProp {
 	allNotes: Blog[];
 }
 
 export const NoteList: FC<NoteListProp> = ({ allNotes }) => {
+	const { t } = useTranslation();
+	const all = t("all");
 	const allTags = allNotes.reduce((acc: string[], cur: Blog) => {
 		const tags = cur.meta.tags || [];
-		return Array.from(new Set([...acc, ...tags]));
+		return Array.from(new Set([all, ...acc, ...tags]));
 	}, []);
-	const [tag, setTag] = useState<string | null>(null);
+	const [tag, setTag] = useState<string | null>(() => all);
 	const filteredNotes = useMemo(
 		() =>
-			tag
-				? allNotes.filter(note => note.meta.tags?.includes(tag))
-				: allNotes,
-		[allNotes, tag]
+			tag === all
+				? allNotes
+				: allNotes.filter(note => note.meta.tags?.includes(tag)),
+		[allNotes, tag, all]
 	);
 
 	return (
@@ -30,12 +33,8 @@ export const NoteList: FC<NoteListProp> = ({ allNotes }) => {
 				>
 					notes
 				</h2>
-				<Select
-					data={allTags}
-					value={tag || allTags[0]}
-					onValueChange={setTag}
-				>
-					标签筛选
+				<Select options={allTags} value={tag} onValueChange={setTag}>
+					{tag === all ? t("filterTags") : tag}
 				</Select>
 			</div>
 			<motion.ol layout className="grid grid-cols-1 gap-4 sm:grid-cols-3">

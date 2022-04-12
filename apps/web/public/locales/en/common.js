@@ -8,4 +8,6 @@ module.exports = {
 	copyCode: "copy code",
 	copyCodeSuccess: "copy code to clipboard success",
 	copyCodeFail: "copy code to clipboard fail",
+	filterTags: "filter tags",
+	all: "all",
 };

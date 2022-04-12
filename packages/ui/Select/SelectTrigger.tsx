@@ -9,6 +9,7 @@ const SelectTrigger = styled(Trigger, {
 	justifyContent: "center",
 	borderRadius: 4,
 	padding: "0 1rem",
+	textTransform: "capitalize",
 	fontSize: 14,
 	lineHeight: 1,
 	height: 36,

@@ -14,21 +14,21 @@ import SelectViewport from "./SelectViewport";
 import SelectItemIndicator from "./SelectItemIndicator";
 import { CheckIcon } from "@radix-ui/react-icons";
 interface SelectProps extends SelectRootProps {
-	data: string[];
+	options: string[];
 }
 
-const Select: FC<SelectProps> = ({ data, children, ...props }) => {
+const Select: FC<SelectProps> = ({ options,  children, ...props }) => {
 	return (
 		<Root {...props}>
 			<SelectTrigger>
-				<Value>{children}</Value>
+				<Value aria-label={props.value}>{children}</Value>
 				<SelectTriggerIcon />
 			</SelectTrigger>
 			<SelectContent>
 				<SelectViewport>
-					{data.map(d => (
-						<SelectItem value={d} key={d}>
-							<ItemText>{d}</ItemText>
+					{options.map(option => (
+						<SelectItem value={option} key={option}>
+							<ItemText>{option}</ItemText>
 							<SelectItemIndicator>
 								<CheckIcon />
 							</SelectItemIndicator>

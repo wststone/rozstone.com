@@ -8,4 +8,6 @@ module.exports = {
 	copyCode: "复制代码",
 	copyCodeSuccess: "复制到剪切板成功",
 	copyCodeFail: "复制到剪切板失败",
+	filterTags: "标签筛选",
+	all: "全部",
 };
