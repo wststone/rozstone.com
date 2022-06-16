@@ -26,7 +26,7 @@ export const ListBlogItem: FunctionComponent<ListBlogItemProps> = ({
 						{title}
 					</div>
 
-					<p className="mt-1 text-sm text-neutral-600 sm:text-xl dark:text-neutral-400 line-clamp-3">
+					<p className="mt-1 text-sm text-neutral-600 sm:text-xl dark:text-neutral-400">
 						{excerpt}
 					</p>
 				</div>
