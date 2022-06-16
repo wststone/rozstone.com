@@ -1,7 +1,6 @@
 import { useRouter } from "next/router";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import ErrorPage from "next/error";
-import Head from "next/head";
 import { FC } from "react";
 import {
 	getContentBySlug,
@@ -11,6 +10,7 @@ import {
 } from "../../lib/api";
 import Layout from "@components/Layout";
 import Post from "@components/Post";
+import PostMeta from "@components/Post/PostMeta";
 import { serialize } from "next-mdx-remote/serialize";
 import { SingleBlogProps } from "@types";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -22,13 +22,11 @@ const SingleBlog: FC<SingleBlogProps> = ({ post }) => {
 	}
 	return (
 		<Layout>
-			<Head>
-				<title>{post.meta.title} | Rozstone's Blog</title>
-				{/* <meta property="og:image" content={post.meta.ogImage.url} /> */}
-				<meta property="og:title" content={post.meta.title} />
-				<meta property="og:description" content={post.meta.excerpt} />
-				<meta property="og:url" content={asPath} />
-			</Head>
+			<PostMeta
+				title={post.meta.title}
+				excerpt={post.meta.title}
+				tags={post.meta.tags}
+			/>
 			<Post source={post.source} {...post.meta} />
 		</Layout>
 	);

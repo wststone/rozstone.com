@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { Root, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu";
 
 interface DropDownProps {
-	trigger?: JSX.Element;
+	trigger?: ReactNode;
 }
 
 export const Dropdown: FC<DropDownProps> = ({

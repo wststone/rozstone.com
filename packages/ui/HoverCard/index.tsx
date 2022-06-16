@@ -1,10 +1,10 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import { Root, Trigger } from "@radix-ui/react-hover-card";
 import HoverCardArrow from "./HoverCardArrow";
 import HoverCardContent from "./HoverCardContent";
 
 interface HoverCardProps {
-	trigger?: JSX.Element | null;
+	trigger?: ReactNode;
 	arrow?: false;
 }
 

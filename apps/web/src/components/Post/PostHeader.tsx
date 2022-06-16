@@ -4,7 +4,7 @@ import { Tag } from "ui";
 interface PostHeaderProps {
 	title: string;
 	date: string;
-	tags?: string[];
+	tags: string[];
 }
 
 const PostHeader: FC<PostHeaderProps> = ({ title, date, tags }) => {
@@ -21,18 +21,16 @@ const PostHeader: FC<PostHeaderProps> = ({ title, date, tags }) => {
 			>
 				{title}
 			</h1>
-			{tags ? (
-				<div className="flex space-x-2 flex-wrap">
-					{tags.map(tag => (
-						<Tag
-							// className="bg-red-50 text-red-500 px-3 my-0.5 py-0.5 rounded-2xl text-sm capitalize dark:bg-slate-600 dark:text-slate-50"
-							key={tag}
-						>
-							{tag}
-						</Tag>
-					))}
-				</div>
-			) : null}
+			<div className="flex space-x-2 flex-wrap">
+				{tags.map(tag => (
+					<Tag
+						// className="bg-red-50 text-red-500 px-3 my-0.5 py-0.5 rounded-2xl text-sm capitalize dark:bg-slate-600 dark:text-slate-50"
+						key={tag}
+					>
+						{tag}
+					</Tag>
+				))}
+			</div>
 			<time dateTime={date} className="text-sm text-neutral-500 mt-1">
 				{format(time, "LLLL	d, yyyy")}
 			</time>

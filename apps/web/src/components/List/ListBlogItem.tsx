@@ -9,7 +9,7 @@ interface ListBlogItemProps {
 	excerpt: string;
 	content: string;
 	locale: string;
-	tags?: string[];
+	tags: string[];
 }
 
 export const ListBlogItem: FunctionComponent<ListBlogItemProps> = ({

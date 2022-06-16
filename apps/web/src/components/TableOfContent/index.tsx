@@ -1,18 +1,37 @@
-import { useEffect } from "react";
+import { FC, useEffect } from "react";
+import { TableOfContent } from "@types";
+import cn from "classnames";
+interface TableOfContentProps {
+	tableOfContents: TableOfContent[];
+	currentSection: string;
+}
 
-const TableOfContent = ({ tableOfContents }) => {
+const TableOfContent: FC<TableOfContentProps> = ({
+	tableOfContents,
+	currentSection,
+}) => {
 	useEffect(() => {}, []);
 	return (
-		<aside className="opacity-0 fixed flex flex-col space-y-2 right-10 top-20 bg-slate-200 p-2 w-[20%] lg:opacity-100 transition-all duration-500">
-			<ul>
+		<aside
+			role="complementary"
+			className="opacity-0 fixed right-2 top-1/4 p-2 xl:opacity-100 transition-all duration-500 max-w-[15ch]"
+		>
+			<ol className="flex flex-col space-y-2">
 				{tableOfContents.map((content, index) => (
-					<li key={index}>
-						<a href={`#${content}`} className="text-sm">
+					<li
+						key={index}
+						className={cn(
+							currentSection === content.content
+								? "text-red-400"
+								: "text-neutral-600"
+						)}
+					>
+						<a href={`#${content.content}`} className="text-sm">
 							{content.content}
 						</a>
 					</li>
 				))}
-			</ul>
+			</ol>
 		</aside>
 	);
 };

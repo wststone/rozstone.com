@@ -9,8 +9,7 @@ export type ParsedBlog = {
 export interface BlogMeta {
 	date: string;
 	title: string;
-	tags?: string[];
-	coverImage: string;
+	tags: string[];
 	excerpt: string;
 	updating?: boolean;
 }
@@ -28,20 +27,17 @@ export type SingleBlogProps = {
 			title: string;
 			excerpt: string;
 			date: string;
-			tags?: string[];
+			tags: string[];
 		};
 		slug: string;
 	};
 };
 
 export type TableOfContent = {
-	title: string;
-	content: {
-		title: string;
-		content: {
-			title: string;
-		}[];
-	};
+	tag: HeadingTags;
+	content: string;
 };
+
+export type HeadingTags = "H2" | "H3" | "H4";
 
 export default Blog;

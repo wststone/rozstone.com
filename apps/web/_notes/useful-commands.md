@@ -36,6 +36,8 @@ git commit --amend --no-edit # stage files first
 
 - do not track file permission change
 
+After using chmod . 777
+
 ```sh
 git config --local core.fileMode false
 ```

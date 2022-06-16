@@ -10,10 +10,10 @@ const Post: FunctionComponent<{
 	title: string;
 	date: string;
 	source: MDXRemoteSerializeResult;
-	tags?: string[];
+	tags: string[];
 	updating?: boolean;
 }> = ({ title, date, source, tags }) => {
-	const { articleRef, portals, currentSection, tableOfContents } =
+	const { articleRef, portals, currentSection, tableOfContents, } =
 		useMarkdownEnhance();
 	console.log(currentSection, tableOfContents);
 	return (
@@ -25,7 +25,7 @@ const Post: FunctionComponent<{
 		>
 			<PostHeader title={title} date={date} tags={tags} />
 			<PostContent source={source} />
-			<TableOfContent tableOfContents={tableOfContents}/>
+			<TableOfContent tableOfContents={tableOfContents} currentSection={currentSection}/>
 			{portals}
 		</article>
 	);

@@ -5,6 +5,7 @@ import {
 	MutableRefObject,
 	ReactPortal,
 } from "react";
+import {TableOfContent,HeadingTags} from "@types"
 import { createPortal } from "react-dom";
 import { CopyButton } from "@components/CodeBlock";
 
@@ -18,12 +19,7 @@ type MarkdownEnhancement = {
 const CODE_BLOCK_SELECTOR = ".remark-highlight";
 const HEADINGS_SELECTOR = "h2, h3, h4";
 
-type TableOfContent = {
-	tag: HeadingTags;
-	content: string;
-};
 
-type HeadingTags = "H2" | "H3" | "H4";
 
 function useMarkdownEnhance(): MarkdownEnhancement {
 	const articleRef = useRef<HTMLElement>(null);

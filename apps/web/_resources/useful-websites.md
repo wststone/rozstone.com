@@ -1,7 +1,6 @@
 ---
 title: 'Useful Commands'
 excerpt: 'Some useful commands'
-date: '2022-02-7T05:35:07.322Z'
 tags:
   - javascript
   - api

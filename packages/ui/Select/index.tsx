@@ -13,11 +13,12 @@ import SelectItem from "./SelectItem";
 import SelectViewport from "./SelectViewport";
 import SelectItemIndicator from "./SelectItemIndicator";
 import { CheckIcon } from "@radix-ui/react-icons";
+
 interface SelectProps extends SelectRootProps {
 	options: string[];
 }
 
-const Select: FC<SelectProps> = ({ options,  children, ...props }) => {
+const Select: FC<SelectProps> = ({ options, children, ...props }) => {
 	return (
 		<Root {...props}>
 			<SelectTrigger>
